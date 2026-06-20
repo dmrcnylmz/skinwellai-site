@@ -7,7 +7,7 @@
 <meta name="description" content="Scan your skin in seconds. SkinwellAI turns a selfie into clear, visual estimates of hydration, texture, redness and more — plus a calm, personalized routine. Private by design. A cosmetic wellness app, not a medical device." />
 <link rel="canonical" href="https://skinwellai.com/" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-<meta name="theme-color" content="#fbfafc" />
+<meta name="theme-color" content="#F4ECE2" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="SkinwellAI — Visual skin & face analysis, by camera" />
 <meta property="og:description" content="Scan your skin in seconds. Clear visual estimates, a calm routine, and progress over time. Private by design." />
@@ -15,135 +15,153 @@
 <meta property="og:image" content="https://skinwellai.com/og.svg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="robots" content="index,follow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
   :root{
-    --bg:#fbf9fc; --bg2:#f4eef7; --fg:#1a1622; --dim:#6b6475; --faint:#9b94a6;
-    --card:#ffffff; --line:#ece6f1; --mint:#1f9e6e; --plum:#7c5cc4; --rose:#e08aa6;
-    --amber:#d6953f; --cyan:#2aa6c4; --shadow:0 14px 40px rgba(40,20,60,.08);
-    --r:20px; --maxw:1080px;
+    /* soft-luxury "bohemian-clinical" palette — mirrors the app tokens */
+    --bg:#F4ECE2; --bg2:#FBF6EF; --fg:#2A2028; --dim:#7C6E66; --faint:#A99C92;
+    --card:#FFFCF7; --line:rgba(120,80,50,.14); --line2:rgba(120,80,50,.22);
+    --terra:#BE7449; --terra-d:#A9633F; --violet:#7E5FBE; --rose:#C56A52;
+    --amber:#B8862E; --cyan:#2E8C96; --ink:#241A26;
+    --shadow:0 20px 55px rgba(120,70,40,.10); --shadow-sm:0 8px 24px rgba(120,70,40,.08);
+    --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+    --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --r:22px; --maxw:1080px;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{margin:0;background:var(--bg);color:var(--fg);
-    font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+    font:17px/1.65 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
   a{color:inherit}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
-  .lift{background:radial-gradient(1200px 600px at 80% -10%,#efe3f7 0,transparent 60%),
-        radial-gradient(900px 500px at -10% 10%,#e7f5ee 0,transparent 55%),var(--bg)}
+  .lift{background:
+    radial-gradient(1100px 560px at 82% -8%,rgba(126,95,190,.10) 0,transparent 58%),
+    radial-gradient(900px 520px at -8% 6%,rgba(190,116,73,.10) 0,transparent 55%),var(--bg)}
+  /* serif display type — the premium signature */
+  h1,h2,.price,.ring i,.final h2,.privacy h2{font-family:var(--serif);font-weight:600;letter-spacing:-.01em}
   /* header */
   header{position:sticky;top:0;z-index:20;backdrop-filter:saturate(180%) blur(14px);
-    background:rgba(251,249,252,.72);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.02em;font-size:18px;text-decoration:none}
-  .brand .dot{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--plum),var(--mint));display:inline-block}
-  .nav .links{display:flex;gap:24px;align-items:center}
-  .nav .links a{color:var(--dim);text-decoration:none;font-size:14.5px}
+    background:rgba(244,236,226,.78);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.01em;font-size:19px;text-decoration:none;font-family:var(--serif)}
+  .brand .dot{width:28px;height:28px;border-radius:9px;background:linear-gradient(140deg,var(--terra),#d89a72);
+    display:grid;place-items:center;color:#fff;font-family:var(--serif);font-size:15px;font-weight:600;box-shadow:var(--shadow-sm)}
+  .nav .links{display:flex;gap:26px;align-items:center}
+  .nav .links a{color:var(--dim);text-decoration:none;font-size:14.5px;font-weight:500}
   .nav .links a:hover{color:var(--fg)}
-  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:11px 20px;
-    font-size:14.5px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer}
-  .btn-primary{background:linear-gradient(135deg,var(--plum),#6346b0);color:#fff;box-shadow:0 8px 22px rgba(124,92,196,.28)}
-  .btn-primary:hover{filter:brightness(1.05)}
-  .btn-ghost{background:var(--card);border-color:var(--line);color:var(--fg)}
-  .langbtn{font-size:13px;color:var(--dim);background:none;border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:12px 22px;
+    font-size:14.5px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:transform .12s ease,filter .12s ease}
+  .btn:active{transform:scale(.98)}
+  .btn-primary{background:var(--terra);color:#FFFCF7;box-shadow:0 10px 26px rgba(190,116,73,.30)}
+  .btn-primary:hover{background:var(--terra-d)}
+  .btn-ghost{background:var(--card);border-color:var(--line2);color:var(--fg)}
+  .btn-ghost:hover{border-color:var(--terra)}
+  .langbtn{font-size:13px;color:var(--dim);background:none;border:1px solid var(--line2);border-radius:999px;padding:7px 13px;cursor:pointer;font-weight:500}
+  .langbtn:hover{color:var(--fg);border-color:var(--terra)}
   @media(max-width:720px){.nav .links a.hide-m{display:none}}
+  /* eyebrow / kicker — mono-style uppercase */
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--terra-d);font-weight:600;background:rgba(190,116,73,.10);border:1px solid rgba(190,116,73,.24);padding:7px 14px;border-radius:999px}
+  .kicker{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--terra-d);font-weight:600}
   /* hero */
-  .hero{padding:64px 0 36px;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
-  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;
-    color:var(--plum);font-weight:700;background:#f0e8fa;border:1px solid #e4d6f7;padding:6px 12px;border-radius:999px}
-  h1{font-size:54px;line-height:1.04;letter-spacing:-.03em;margin:18px 0 16px;font-weight:800}
-  h1 .accent{background:linear-gradient(120deg,var(--plum),var(--mint));-webkit-background-clip:text;background-clip:text;color:transparent}
-  .lead{font-size:19px;color:var(--dim);max-width:33ch;margin:0 0 26px}
+  .hero{padding:70px 0 40px;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+  h1{font-size:62px;line-height:1.02;margin:20px 0 18px}
+  h1 .accent{font-style:italic;color:var(--terra)}
+  .lead{font-size:19px;color:var(--dim);max-width:34ch;margin:0 0 28px;line-height:1.6}
   .cta-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-  .trust{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px;color:var(--faint);font-size:13.5px}
+  .trust{display:flex;gap:20px;flex-wrap:wrap;margin-top:24px;color:var(--faint);font-size:13.5px}
   .trust b{color:var(--dim);font-weight:600}
   /* phone mockup */
-  .phone{justify-self:center;width:300px;max-width:84vw;aspect-ratio:300/610;border-radius:42px;
-    background:linear-gradient(160deg,#fff,#f6f0fb);border:1px solid var(--line);
-    box-shadow:var(--shadow);padding:14px;position:relative}
-  .screen{height:100%;border-radius:30px;overflow:hidden;background:linear-gradient(180deg,#fdfbff,#f3ecf8);
+  .phone{justify-self:center;width:304px;max-width:84vw;aspect-ratio:304/620;border-radius:46px;
+    background:linear-gradient(165deg,#fff,#f4ebe0);border:1px solid var(--line2);
+    box-shadow:var(--shadow);padding:13px;position:relative}
+  .screen{height:100%;border-radius:34px;overflow:hidden;background:linear-gradient(180deg,#FBF6EF,#F4ECE2);
     border:1px solid var(--line);display:flex;flex-direction:column}
-  .screen .top{padding:18px 16px 10px}
-  .screen .k{font:11px/1 ui-monospace,Menlo,monospace;letter-spacing:.14em;color:var(--faint)}
-  .screen .score{display:flex;align-items:center;gap:14px;margin:10px 0 4px}
-  .ring{width:74px;height:74px;border-radius:50%;background:
-    conic-gradient(var(--mint) 0 76%,#e8e0f0 76% 100%);display:grid;place-items:center}
-  .ring i{width:56px;height:56px;border-radius:50%;background:#fff;display:grid;place-items:center;font-weight:800;font-size:21px;font-style:normal}
-  .screen h3{margin:2px 0 2px;font-size:18px}
+  .screen .top{padding:20px 18px 10px}
+  .screen .k{font:11px/1 ui-monospace,Menlo,monospace;letter-spacing:.16em;color:var(--faint)}
+  .screen .score{display:flex;align-items:center;gap:14px;margin:12px 0 4px}
+  .ring{width:78px;height:78px;border-radius:50%;background:
+    conic-gradient(var(--terra) 0 76%,rgba(120,80,50,.12) 76% 100%);display:grid;place-items:center}
+  .ring i{width:58px;height:58px;border-radius:50%;background:#FFFCF7;display:grid;place-items:center;font-size:24px;font-style:normal}
+  .screen h3{margin:2px 0 2px;font-size:18px;font-family:var(--serif);font-weight:600}
   .screen .sub{color:var(--dim);font-size:12.5px;margin:0}
-  .bars{padding:8px 16px 16px;display:grid;gap:10px}
+  .bars{padding:10px 18px 16px;display:grid;gap:11px}
   .bar{display:grid;gap:5px}
   .bar .lbl{display:flex;justify-content:space-between;font-size:11.5px;color:var(--dim)}
-  .bar .track{height:7px;border-radius:6px;background:#ece4f3;overflow:hidden}
+  .bar .track{height:7px;border-radius:6px;background:rgba(120,80,50,.10);overflow:hidden}
   .bar .fill{height:100%;border-radius:6px}
-  .disc{margin-top:auto;padding:12px 16px;border-top:1px solid var(--line);font-size:10.5px;color:var(--faint)}
+  .disc{margin-top:auto;padding:12px 18px;border-top:1px solid var(--line);font-size:10.5px;color:var(--faint)}
   /* sections */
-  section{padding:56px 0}
-  .sec-h{text-align:center;max-width:640px;margin:0 auto 38px}
-  .sec-h h2{font-size:34px;letter-spacing:-.02em;margin:8px 0 10px;font-weight:800}
+  section{padding:60px 0}
+  .sec-h{text-align:center;max-width:660px;margin:0 auto 42px}
+  .sec-h h2{font-size:40px;margin:10px 0 12px}
   .sec-h p{color:var(--dim);margin:0;font-size:17px}
-  .kicker{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--plum);font-weight:700}
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .step{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px}
-  .step .n{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-weight:800;color:#fff;
-    background:linear-gradient(135deg,var(--plum),var(--mint));margin-bottom:12px}
-  .step h3{margin:0 0 6px;font-size:18px}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px;box-shadow:var(--shadow-sm)}
+  .step .n{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;font-family:var(--serif);font-weight:600;font-size:18px;color:#FFFCF7;
+    background:linear-gradient(140deg,var(--terra),#d89a72);margin-bottom:14px}
+  .step h3{margin:0 0 6px;font-size:19px;font-family:var(--serif);font-weight:600}
   .step p{margin:0;color:var(--dim);font-size:15px}
   .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .feat{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px}
-  .feat .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-size:20px;margin-bottom:12px}
-  .feat h3{margin:0 0 6px;font-size:17px}
+  .feat{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px;box-shadow:var(--shadow-sm)}
+  .feat .ic{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;font-size:21px;margin-bottom:14px;background:rgba(190,116,73,.10)}
+  .feat h3{margin:0 0 6px;font-size:18px;font-family:var(--serif);font-weight:600}
   .feat p{margin:0;color:var(--dim);font-size:14.5px}
   /* privacy band */
-  .privacy{background:linear-gradient(135deg,#16121f,#241a35);color:#efeaf5;border-radius:28px;padding:42px;margin:0 22px}
-  .privacy .wrap2{max-width:920px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;gap:30px;align-items:center}
-  .privacy h2{color:#fff;font-size:30px;letter-spacing:-.02em;margin:8px 0 12px}
-  .privacy p{color:#c9c0d8;margin:0 0 10px;font-size:15.5px}
-  .privacy ul{list-style:none;padding:0;margin:0;display:grid;gap:12px}
-  .privacy li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:#e7e1ef}
-  .privacy li .c{color:var(--mint);font-weight:800}
+  .privacy{background:linear-gradient(140deg,#241A26,#34283C);color:#F3EDE4;border-radius:30px;padding:46px;margin:0 22px;box-shadow:var(--shadow)}
+  .privacy .wrap2{max-width:920px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:center}
+  .privacy h2{color:#fff;font-size:36px;margin:8px 0 14px}
+  .privacy p{color:#cdbfd2;margin:0 0 10px;font-size:15.5px;line-height:1.6}
+  .privacy ul{list-style:none;padding:0;margin:0;display:grid;gap:13px}
+  .privacy li{display:flex;gap:11px;align-items:flex-start;font-size:14.5px;color:#ece3ef;line-height:1.55}
+  .privacy li .c{color:#E3A888;font-weight:700;flex-shrink:0}
+  .privacy .kicker{color:#E3A888}
   /* pricing */
-  .plans{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:760px;margin:0 auto}
-  .plan{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px;position:relative}
-  .plan.best{border-color:var(--plum);box-shadow:0 18px 50px rgba(124,92,196,.16)}
-  .plan .tag{position:absolute;top:-12px;right:20px;background:linear-gradient(135deg,var(--plum),var(--mint));color:#fff;
-    font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:999px}
-  .plan h3{margin:0 0 2px;font-size:18px}
-  .plan .price{font-size:40px;font-weight:800;letter-spacing:-.02em;margin:8px 0 2px}
-  .plan .price small{font-size:15px;color:var(--dim);font-weight:600}
-  .plan .per{color:var(--faint);font-size:13.5px;margin:0 0 16px}
-  .plan ul{list-style:none;padding:0;margin:0 0 6px;display:grid;gap:9px}
-  .plan li{font-size:14.5px;color:var(--dim);display:flex;gap:8px}
-  .plan li .c{color:var(--mint)}
-  .pnote{text-align:center;color:var(--faint);font-size:13px;margin-top:16px}
+  .plans{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:780px;margin:0 auto}
+  .plan{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:30px;position:relative;box-shadow:var(--shadow-sm)}
+  .plan.best{border-color:var(--violet);box-shadow:0 20px 54px rgba(126,95,190,.18)}
+  .plan .tag{position:absolute;top:-13px;right:22px;background:var(--violet);color:#FFFCF7;
+    font-size:11px;font-weight:600;letter-spacing:.04em;padding:6px 13px;border-radius:999px}
+  .plan h3{margin:0 0 2px;font-size:15px;letter-spacing:.04em;text-transform:uppercase;color:var(--dim);font-weight:600}
+  .plan .price{font-size:46px;margin:6px 0 2px;color:var(--fg)}
+  .plan .price small{font-size:15px;color:var(--dim);font-weight:500;font-family:var(--sans)}
+  .plan .per{color:var(--faint);font-size:13.5px;margin:0 0 18px}
+  .plan ul{list-style:none;padding:0;margin:0 0 6px;display:grid;gap:10px}
+  .plan li{font-size:14.5px;color:var(--dim);display:flex;gap:9px}
+  .plan li .c{color:var(--terra);font-weight:700}
+  .plan.best li .c{color:var(--violet)}
+  .pnote{text-align:center;color:var(--faint);font-size:13px;margin-top:18px;max-width:620px;margin-left:auto;margin-right:auto}
   /* faq */
-  .faq{max-width:760px;margin:0 auto;display:grid;gap:10px}
-  details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:4px 18px}
-  summary{cursor:pointer;padding:14px 0;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center}
+  .faq{max-width:760px;margin:0 auto;display:grid;gap:11px}
+  details{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:4px 20px;box-shadow:var(--shadow-sm)}
+  summary{cursor:pointer;padding:16px 0;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center;font-size:16px}
   summary::-webkit-details-marker{display:none}
-  summary::after{content:"+";color:var(--plum);font-size:20px;font-weight:700}
+  summary::after{content:"+";color:var(--terra);font-size:22px;font-weight:400}
   details[open] summary::after{content:"–"}
-  details p{margin:0 0 14px;color:var(--dim);font-size:15px}
+  details p{margin:0 0 16px;color:var(--dim);font-size:15px;line-height:1.6}
   /* final cta */
-  .final{text-align:center;background:radial-gradient(800px 400px at 50% 0,#efe3f7,transparent 60%);
-    border:1px solid var(--line);border-radius:28px;padding:54px 22px;margin:0 22px}
-  .final h2{font-size:34px;letter-spacing:-.02em;margin:0 0 10px}
-  .final p{color:var(--dim);margin:0 0 22px}
+  .final{text-align:center;background:
+    radial-gradient(760px 380px at 50% -10%,rgba(190,116,73,.14),transparent 62%),var(--card);
+    border:1px solid var(--line);border-radius:30px;padding:60px 22px;margin:0 22px;box-shadow:var(--shadow-sm)}
+  .final h2{font-size:40px;margin:0 0 12px}
+  .final p{color:var(--dim);margin:0 0 24px;font-size:17px}
   /* footer */
-  footer{margin-top:60px;border-top:1px solid var(--line);background:var(--card)}
-  .foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:34px 0}
-  .foot .col h4{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin:0 0 12px}
-  .foot .col a{display:block;color:var(--dim);text-decoration:none;font-size:14px;margin-bottom:8px}
-  .foot .col a:hover{color:var(--fg)}
-  .legal-line{color:var(--faint);font-size:12.5px;padding:0 0 30px;line-height:1.7}
+  footer{margin-top:64px;border-top:1px solid var(--line);background:var(--bg2)}
+  .foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:38px 0}
+  .foot .col h4{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin:0 0 14px;font-weight:600}
+  .foot .col a{display:block;color:var(--dim);text-decoration:none;font-size:14px;margin-bottom:9px}
+  .foot .col a:hover{color:var(--terra)}
+  .legal-line{color:var(--faint);font-size:12.5px;padding:0 0 32px;line-height:1.75}
   /* responsive */
   @media(max-width:820px){
-    .hero{grid-template-columns:1fr;text-align:center;padding-top:44px}
+    .hero{grid-template-columns:1fr;text-align:center;padding-top:48px}
     .lead{margin-left:auto;margin-right:auto}.cta-row{justify-content:center}.trust{justify-content:center}
     .eyebrow{margin:0 auto}
     .steps,.grid{grid-template-columns:1fr}
     .privacy .wrap2{grid-template-columns:1fr}.plans{grid-template-columns:1fr}
-    h1{font-size:40px}.sec-h h2{font-size:28px}
+    h1{font-size:46px}.sec-h h2{font-size:32px}.privacy h2{font-size:30px}.final h2{font-size:32px}
   }
   [data-lang="tr"] .en,[data-lang="en"] .tr{display:none}
 </style>
@@ -151,7 +169,7 @@
 <body data-lang="en" class="lift">
 <header>
   <div class="wrap nav">
-    <a class="brand" href="/"><span class="dot"></span> SkinwellAI</a>
+    <a class="brand" href="/"><span class="dot">S</span> SkinwellAI</a>
     <nav class="links">
       <a class="hide-m" href="#how">How it works</a>
       <a class="hide-m" href="#features">Features</a>
@@ -199,7 +217,7 @@
         </div>
         <div class="bars">
           <div class="bar"><div class="lbl"><span class="en">Hydration</span><span class="tr">Nem</span><span>79</span></div><div class="track"><div class="fill" style="width:79%;background:var(--cyan)"></div></div></div>
-          <div class="bar"><div class="lbl"><span class="en">Barrier</span><span class="tr">Bariyer</span><span>76</span></div><div class="track"><div class="fill" style="width:76%;background:var(--mint)"></div></div></div>
+          <div class="bar"><div class="lbl"><span class="en">Barrier</span><span class="tr">Bariyer</span><span>76</span></div><div class="track"><div class="fill" style="width:76%;background:var(--terra)"></div></div></div>
           <div class="bar"><div class="lbl"><span class="en">Texture</span><span class="tr">Doku</span><span>58</span></div><div class="track"><div class="fill" style="width:58%;background:var(--amber)"></div></div></div>
           <div class="bar"><div class="lbl"><span class="en">Redness</span><span class="tr">Kızarıklık</span><span>52</span></div><div class="track"><div class="fill" style="width:52%;background:var(--rose)"></div></div></div>
         </div>
@@ -231,12 +249,12 @@
     <h2><span class="en">Everything in one calm app</span><span class="tr">Hepsi tek bir sakin uygulamada</span></h2>
   </div>
   <div class="grid">
-    <div class="feat"><div class="ic" style="background:#e7f5ee">🔬</div><h3 class="en">Skin scan</h3><h3 class="tr">Cilt taraması</h3><p class="en">Hydration, surface shine, texture, visible pores, redness and under-eye tone — each a visual estimate.</p><p class="tr">Nem, parlaklık, doku, gözenekler, kızarıklık ve göz altı tonu — her biri bir görsel tahmin.</p></div>
-    <div class="feat"><div class="ic" style="background:#f0e8fa">🗺️</div><h3 class="en">Facial map</h3><h3 class="tr">Yüz haritası</h3><p class="en">See which areas the estimate highlights, zone by zone.</p><p class="tr">Tahminin vurguladığı bölgeleri, bölge bölge gör.</p></div>
-    <div class="feat"><div class="ic" style="background:#fbeef3">✦</div><h3 class="en">Aesthetic view</h3><h3 class="tr">Estetik bakış</h3><p class="en">Photo-based proportion estimates — a fun, non-judgemental view, never a verdict on worth.</p><p class="tr">Fotoğrafa dayalı oran tahminleri — eğlenceli, yargılamayan bir bakış; asla değer yargısı değil.</p></div>
-    <div class="feat"><div class="ic" style="background:#e7f3f7">🧴</div><h3 class="en">Tailored routine</h3><h3 class="tr">Kişiye özel rutin</h3><p class="en">A calm, cosmetic AM/PM routine built around your profile.</p><p class="tr">Profiline göre sakin, kozmetik bir sabah/akşam rutini.</p></div>
-    <div class="feat"><div class="ic" style="background:#f6f0e3">📈</div><h3 class="en">Progress</h3><h3 class="tr">İlerleme</h3><p class="en">Track how estimates change over time under similar conditions.</p><p class="tr">Tahminlerin benzer koşullarda zamanla nasıl değiştiğini izle.</p></div>
-    <div class="feat"><div class="ic" style="background:#e7f5ee">🤖</div><h3 class="en">Optional AI summary</h3><h3 class="tr">İsteğe bağlı AI özeti</h3><p class="en">An opt-in narrative that explains your scores in plain language — your photo is never sent.</p><p class="tr">Skorlarını sade bir dille açıklayan, onaya bağlı bir özet — fotoğrafın asla gönderilmez.</p></div>
+    <div class="feat"><div class="ic">🔬</div><h3 class="en">Skin scan</h3><h3 class="tr">Cilt taraması</h3><p class="en">Hydration, surface shine, texture, visible pores, redness and under-eye tone — each a visual estimate.</p><p class="tr">Nem, parlaklık, doku, gözenekler, kızarıklık ve göz altı tonu — her biri bir görsel tahmin.</p></div>
+    <div class="feat"><div class="ic">🗺️</div><h3 class="en">Facial map</h3><h3 class="tr">Yüz haritası</h3><p class="en">See which areas the estimate highlights, zone by zone.</p><p class="tr">Tahminin vurguladığı bölgeleri, bölge bölge gör.</p></div>
+    <div class="feat"><div class="ic">✦</div><h3 class="en">Aesthetic view</h3><h3 class="tr">Estetik bakış</h3><p class="en">Photo-based proportion estimates — a fun, non-judgemental view, never a verdict on worth.</p><p class="tr">Fotoğrafa dayalı oran tahminleri — eğlenceli, yargılamayan bir bakış; asla değer yargısı değil.</p></div>
+    <div class="feat"><div class="ic">🧴</div><h3 class="en">Tailored routine</h3><h3 class="tr">Kişiye özel rutin</h3><p class="en">A calm, cosmetic AM/PM routine built around your profile.</p><p class="tr">Profiline göre sakin, kozmetik bir sabah/akşam rutini.</p></div>
+    <div class="feat"><div class="ic">📈</div><h3 class="en">Progress</h3><h3 class="tr">İlerleme</h3><p class="en">Track how estimates change over time under similar conditions.</p><p class="tr">Tahminlerin benzer koşullarda zamanla nasıl değiştiğini izle.</p></div>
+    <div class="feat"><div class="ic">🤖</div><h3 class="en">Optional AI summary</h3><h3 class="tr">İsteğe bağlı AI özeti</h3><p class="en">An opt-in narrative that explains your scores in plain language — your photo is never sent.</p><p class="tr">Skorlarını sade bir dille açıklayan, onaya bağlı bir özet — fotoğrafın asla gönderilmez.</p></div>
   </div>
 </section></div>
 
@@ -244,7 +262,7 @@
 <section id="privacy">
   <div class="privacy"><div class="wrap2">
     <div>
-      <span class="kicker" style="color:#cbb9ee"><span class="en">Privacy &amp; trust</span><span class="tr">Gizlilik &amp; güven</span></span>
+      <span class="kicker"><span class="en">Privacy &amp; trust</span><span class="tr">Gizlilik &amp; güven</span></span>
       <h2><span class="en">Your face stays yours.</span><span class="tr">Yüzün sana ait kalır.</span></h2>
       <p class="en">SkinwellAI is built privacy-first. Your face photo is processed to produce your analysis and is never sold or used to track you.</p>
       <p class="tr">SkinwellAI gizlilik öncelikli kuruldu. Yüz fotoğrafın analizini üretmek için işlenir; satılmaz ve seni izlemek için kullanılmaz.</p>
@@ -277,7 +295,7 @@
       </ul>
     </div>
     <div class="plan best">
-      <span class="tag"><span class="en">Best value · save 50%</span><span class="tr">En avantajlı · %50 tasarruf</span></span>
+      <span class="tag"><span class="en">Best value</span><span class="tr">En avantajlı</span></span>
       <h3 class="en">Pro Annual</h3><h3 class="tr">Pro Yıllık</h3>
       <div class="price">$59.99 <small>/ <span class="en">yr</span><span class="tr">yıl</span></small></div>
       <p class="per en">≈ $5.00/mo · billed yearly</p><p class="per tr">≈ $5.00/ay · yıllık faturalanır</p>
@@ -288,7 +306,7 @@
       </ul>
     </div>
   </div>
-  <p class="pnote"><span class="en">No free trial · no lifetime plan · prices shown in your local currency at checkout. Subscriptions are billed by Apple.</span><span class="tr">Ücretsiz deneme yok · ömür boyu plan yok · fiyatlar ödemede yerel para biriminde gösterilir. Abonelikler Apple tarafından faturalanır.</span></p>
+  <p class="pnote"><span class="en">No free trial · no lifetime plan · prices shown in your local currency at checkout. Subscriptions are billed by Apple and renew automatically unless cancelled at least 24h before the period ends.</span><span class="tr">Ücretsiz deneme yok · ömür boyu plan yok · fiyatlar ödemede yerel para biriminde gösterilir. Abonelikler Apple tarafından faturalanır ve dönem bitiminden en az 24 saat önce iptal edilmezse otomatik yenilenir.</span></p>
 </section></div>
 
 <!-- FAQ -->
@@ -321,17 +339,17 @@
   <div class="final">
     <h2><span class="en">Understand your skin today.</span><span class="tr">Cildini bugün anla.</span></h2>
     <p><span class="en">A calmer, clearer skincare routine starts with one scan.</span><span class="tr">Daha sakin, daha net bir cilt bakımı tek bir taramayla başlar.</span></p>
-    <a class="btn btn-primary" href="#pricing" style="padding:14px 28px"><span class="en">Coming soon to the App Store</span><span class="tr">App Store'da çok yakında</span></a>
-    <p style="color:var(--faint);font-size:13px;margin-top:14px"><span class="en">iOS · Currently in closed beta</span><span class="tr">iOS · Şu anda kapalı beta</span></p>
+    <a class="btn btn-primary" href="#pricing" style="padding:15px 30px"><span class="en">Coming soon to the App Store</span><span class="tr">App Store'da çok yakında</span></a>
+    <p style="color:var(--faint);font-size:13px;margin-top:16px"><span class="en">iOS · Currently in closed beta</span><span class="tr">iOS · Şu anda kapalı beta</span></p>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
   <div class="wrap foot">
-    <div class="col" style="max-width:280px">
-      <a class="brand" href="/" style="margin-bottom:10px"><span class="dot"></span> SkinwellAI</a>
-      <p style="color:var(--dim);font-size:14px;margin:0">
+    <div class="col" style="max-width:290px">
+      <a class="brand" href="/" style="margin-bottom:12px"><span class="dot">S</span> SkinwellAI</a>
+      <p style="color:var(--dim);font-size:14px;margin:0;line-height:1.6">
         <span class="en">Visual skin &amp; face analysis, by camera. Cosmetic wellness — not a medical device.</span>
         <span class="tr">Kamerayla görsel cilt ve yüz analizi. Kozmetik wellness — tıbbi cihaz değildir.</span>
       </p>

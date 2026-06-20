@@ -1,0 +1,64 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>SkinwellAI — Contact / İletişim</title>
+<meta name="description" content="SkinwellAI Contact (İletişim). Cosmetic wellness app — not a medical device."/>
+<link rel="canonical" href="https://skinwellai.com/contact"/>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<meta property="og:title" content="SkinwellAI — Contact"/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://skinwellai.com/contact"/>
+<meta name="robots" content="index,follow"/>
+<style>
+:root{--fg:#1a1622;--dim:#6b6475;--bg:#fbfafc;--card:#fff;--line:#ece8f0;--mint:#1f9e6e}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);
+font:16px/1.6 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+.wrap{max-width:720px;margin:0 auto;padding:24px 18px 80px}
+nav a{color:var(--dim);text-decoration:none;font-size:13px;margin-right:14px}
+nav a:hover{color:var(--mint)}
+h1{font-size:24px;margin:18px 0 6px}h2{font-size:19px;margin:28px 0 8px}
+h3{font-size:16px;margin:20px 0 6px}p,li{color:var(--fg)}ul{padding-left:20px}
+blockquote{border-left:3px solid var(--mint);margin:14px 0;padding:6px 14px;color:var(--dim);background:var(--card)}
+hr{border:0;border-top:1px solid var(--line);margin:22px 0}
+code{background:#f0eef4;padding:1px 5px;border-radius:4px;font-size:13px}
+.toggle{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;margin:8px 0 4px}
+.toggle button{border:0;background:var(--card);padding:7px 16px;font-size:14px;cursor:pointer;color:var(--dim)}
+.toggle button.active{background:var(--mint);color:#fff}
+.hidden{display:none}footer{color:var(--dim);font-size:12px;margin-top:40px}
+@media(max-width:520px){.wrap{padding:16px 14px 60px}h1{font-size:21px}}
+</style></head>
+<body><div class="wrap">
+<nav><a href="/">← SkinwellAI</a></nav>
+<div class="toggle"><button id="b-en" class="active" onclick="setLang('en')">English</button>
+<button id="b-tr" onclick="setLang('tr')">Türkçe</button></div>
+<section id="en"><h2>English</h2>
+<ul>
+<li><strong>Provider:</strong> Demircan Yılmaz (şahıs işletmesi / sole proprietorship (Türkiye))</li>
+<li><strong>Support &amp; general:</strong> support@skinwellai.com</li>
+<li><strong>Privacy / data requests:</strong> Demircan Yılmaz — support@skinwellai.com</li>
+<li><strong>Address:</strong> Cevizli Mah. Ulubey Sk. Nursanlar Plaza A Blok No: 4A İç Kapı No: 113, Kartal, İstanbul 34862, Türkiye</li>
+<li><strong>Governing law:</strong> Türkiye Cumhuriyeti / Republic of Türkiye — İstanbul (Anadolu) courts</li>
+</ul>
+<p>We aim to respond within 2 business days. For account deletion, see the Account</p>
+<p>Deletion page; for data export, use <strong>Profile → Privacy → Export my data</strong> in the</p>
+<p>app.</p>
+<hr/></section>
+<section id="tr" class="hidden"><h2>Türkçe</h2>
+<ul>
+<li><strong>Sağlayıcı:</strong> Demircan Yılmaz (şahıs işletmesi / sole proprietorship (Türkiye))</li>
+<li><strong>Destek ve genel:</strong> support@skinwellai.com</li>
+<li><strong>Gizlilik / veri talepleri:</strong> Demircan Yılmaz — support@skinwellai.com</li>
+<li><strong>Adres:</strong> Cevizli Mah. Ulubey Sk. Nursanlar Plaza A Blok No: 4A İç Kapı No: 113, Kartal, İstanbul 34862, Türkiye</li>
+<li><strong>Geçerli hukuk:</strong> Türkiye Cumhuriyeti / Republic of Türkiye — İstanbul (Anadolu) courts</li>
+</ul>
+<p>2 iş günü içinde yanıt vermeyi hedefliyoruz. Hesap silme için Hesap Silme</p>
+<p>sayfasına bakın; veri dışa aktarımı için uygulamada **Profil → Gizlilik →</p>
+<p>Verilerimi dışa aktar**'ı kullanın.</p></section>
+<footer>SkinwellAI · cosmetic wellness, not a medical device.</footer>
+</div>
+<script>function setLang(l){document.getElementById('en').classList.toggle('hidden',l!=='en');
+document.getElementById('tr').classList.toggle('hidden',l!=='tr');
+document.getElementById('b-en').classList.toggle('active',l==='en');
+document.getElementById('b-tr').classList.toggle('active',l==='tr');
+var u=new URL(location);u.searchParams.set('lang',l);history.replaceState(0,'',u);}
+var p=new URLSearchParams(location.search).get('lang');if(p)setLang(p);</script>
+</body></html>

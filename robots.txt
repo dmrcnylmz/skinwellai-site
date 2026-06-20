@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://skinwellai.com/sitemap.xml

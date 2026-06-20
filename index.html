@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>SkinwellAI — Visual skin & face analysis, by camera</title>
+<meta name="description" content="Scan your skin in seconds. SkinwellAI turns a selfie into clear, visual estimates of hydration, texture, redness and more — plus a calm, personalized routine. Private by design. A cosmetic wellness app, not a medical device." />
+<link rel="canonical" href="https://skinwellai.com/" />
+<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+<meta name="theme-color" content="#fbfafc" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="SkinwellAI — Visual skin & face analysis, by camera" />
+<meta property="og:description" content="Scan your skin in seconds. Clear visual estimates, a calm routine, and progress over time. Private by design." />
+<meta property="og:url" content="https://skinwellai.com/" />
+<meta property="og:image" content="https://skinwellai.com/og.svg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="robots" content="index,follow" />
+<style>
+  :root{
+    --bg:#fbf9fc; --bg2:#f4eef7; --fg:#1a1622; --dim:#6b6475; --faint:#9b94a6;
+    --card:#ffffff; --line:#ece6f1; --mint:#1f9e6e; --plum:#7c5cc4; --rose:#e08aa6;
+    --amber:#d6953f; --cyan:#2aa6c4; --shadow:0 14px 40px rgba(40,20,60,.08);
+    --r:20px; --maxw:1080px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--fg);
+    font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  .lift{background:radial-gradient(1200px 600px at 80% -10%,#efe3f7 0,transparent 60%),
+        radial-gradient(900px 500px at -10% 10%,#e7f5ee 0,transparent 55%),var(--bg)}
+  /* header */
+  header{position:sticky;top:0;z-index:20;backdrop-filter:saturate(180%) blur(14px);
+    background:rgba(251,249,252,.72);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:-.02em;font-size:18px;text-decoration:none}
+  .brand .dot{width:26px;height:26px;border-radius:8px;background:linear-gradient(135deg,var(--plum),var(--mint));display:inline-block}
+  .nav .links{display:flex;gap:24px;align-items:center}
+  .nav .links a{color:var(--dim);text-decoration:none;font-size:14.5px}
+  .nav .links a:hover{color:var(--fg)}
+  .btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:11px 20px;
+    font-size:14.5px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer}
+  .btn-primary{background:linear-gradient(135deg,var(--plum),#6346b0);color:#fff;box-shadow:0 8px 22px rgba(124,92,196,.28)}
+  .btn-primary:hover{filter:brightness(1.05)}
+  .btn-ghost{background:var(--card);border-color:var(--line);color:var(--fg)}
+  .langbtn{font-size:13px;color:var(--dim);background:none;border:1px solid var(--line);border-radius:999px;padding:6px 12px;cursor:pointer}
+  @media(max-width:720px){.nav .links a.hide-m{display:none}}
+  /* hero */
+  .hero{padding:64px 0 36px;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--plum);font-weight:700;background:#f0e8fa;border:1px solid #e4d6f7;padding:6px 12px;border-radius:999px}
+  h1{font-size:54px;line-height:1.04;letter-spacing:-.03em;margin:18px 0 16px;font-weight:800}
+  h1 .accent{background:linear-gradient(120deg,var(--plum),var(--mint));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{font-size:19px;color:var(--dim);max-width:33ch;margin:0 0 26px}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .trust{display:flex;gap:18px;flex-wrap:wrap;margin-top:22px;color:var(--faint);font-size:13.5px}
+  .trust b{color:var(--dim);font-weight:600}
+  /* phone mockup */
+  .phone{justify-self:center;width:300px;max-width:84vw;aspect-ratio:300/610;border-radius:42px;
+    background:linear-gradient(160deg,#fff,#f6f0fb);border:1px solid var(--line);
+    box-shadow:var(--shadow);padding:14px;position:relative}
+  .screen{height:100%;border-radius:30px;overflow:hidden;background:linear-gradient(180deg,#fdfbff,#f3ecf8);
+    border:1px solid var(--line);display:flex;flex-direction:column}
+  .screen .top{padding:18px 16px 10px}
+  .screen .k{font:11px/1 ui-monospace,Menlo,monospace;letter-spacing:.14em;color:var(--faint)}
+  .screen .score{display:flex;align-items:center;gap:14px;margin:10px 0 4px}
+  .ring{width:74px;height:74px;border-radius:50%;background:
+    conic-gradient(var(--mint) 0 76%,#e8e0f0 76% 100%);display:grid;place-items:center}
+  .ring i{width:56px;height:56px;border-radius:50%;background:#fff;display:grid;place-items:center;font-weight:800;font-size:21px;font-style:normal}
+  .screen h3{margin:2px 0 2px;font-size:18px}
+  .screen .sub{color:var(--dim);font-size:12.5px;margin:0}
+  .bars{padding:8px 16px 16px;display:grid;gap:10px}
+  .bar{display:grid;gap:5px}
+  .bar .lbl{display:flex;justify-content:space-between;font-size:11.5px;color:var(--dim)}
+  .bar .track{height:7px;border-radius:6px;background:#ece4f3;overflow:hidden}
+  .bar .fill{height:100%;border-radius:6px}
+  .disc{margin-top:auto;padding:12px 16px;border-top:1px solid var(--line);font-size:10.5px;color:var(--faint)}
+  /* sections */
+  section{padding:56px 0}
+  .sec-h{text-align:center;max-width:640px;margin:0 auto 38px}
+  .sec-h h2{font-size:34px;letter-spacing:-.02em;margin:8px 0 10px;font-weight:800}
+  .sec-h p{color:var(--dim);margin:0;font-size:17px}
+  .kicker{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--plum);font-weight:700}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px}
+  .step .n{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-weight:800;color:#fff;
+    background:linear-gradient(135deg,var(--plum),var(--mint));margin-bottom:12px}
+  .step h3{margin:0 0 6px;font-size:18px}
+  .step p{margin:0;color:var(--dim);font-size:15px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .feat{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+  .feat .ic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;font-size:20px;margin-bottom:12px}
+  .feat h3{margin:0 0 6px;font-size:17px}
+  .feat p{margin:0;color:var(--dim);font-size:14.5px}
+  /* privacy band */
+  .privacy{background:linear-gradient(135deg,#16121f,#241a35);color:#efeaf5;border-radius:28px;padding:42px;margin:0 22px}
+  .privacy .wrap2{max-width:920px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;gap:30px;align-items:center}
+  .privacy h2{color:#fff;font-size:30px;letter-spacing:-.02em;margin:8px 0 12px}
+  .privacy p{color:#c9c0d8;margin:0 0 10px;font-size:15.5px}
+  .privacy ul{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+  .privacy li{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:#e7e1ef}
+  .privacy li .c{color:var(--mint);font-weight:800}
+  /* pricing */
+  .plans{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:760px;margin:0 auto}
+  .plan{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px;position:relative}
+  .plan.best{border-color:var(--plum);box-shadow:0 18px 50px rgba(124,92,196,.16)}
+  .plan .tag{position:absolute;top:-12px;right:20px;background:linear-gradient(135deg,var(--plum),var(--mint));color:#fff;
+    font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:999px}
+  .plan h3{margin:0 0 2px;font-size:18px}
+  .plan .price{font-size:40px;font-weight:800;letter-spacing:-.02em;margin:8px 0 2px}
+  .plan .price small{font-size:15px;color:var(--dim);font-weight:600}
+  .plan .per{color:var(--faint);font-size:13.5px;margin:0 0 16px}
+  .plan ul{list-style:none;padding:0;margin:0 0 6px;display:grid;gap:9px}
+  .plan li{font-size:14.5px;color:var(--dim);display:flex;gap:8px}
+  .plan li .c{color:var(--mint)}
+  .pnote{text-align:center;color:var(--faint);font-size:13px;margin-top:16px}
+  /* faq */
+  .faq{max-width:760px;margin:0 auto;display:grid;gap:10px}
+  details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:4px 18px}
+  summary{cursor:pointer;padding:14px 0;font-weight:600;list-style:none;display:flex;justify-content:space-between;align-items:center}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";color:var(--plum);font-size:20px;font-weight:700}
+  details[open] summary::after{content:"–"}
+  details p{margin:0 0 14px;color:var(--dim);font-size:15px}
+  /* final cta */
+  .final{text-align:center;background:radial-gradient(800px 400px at 50% 0,#efe3f7,transparent 60%);
+    border:1px solid var(--line);border-radius:28px;padding:54px 22px;margin:0 22px}
+  .final h2{font-size:34px;letter-spacing:-.02em;margin:0 0 10px}
+  .final p{color:var(--dim);margin:0 0 22px}
+  /* footer */
+  footer{margin-top:60px;border-top:1px solid var(--line);background:var(--card)}
+  .foot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;padding:34px 0}
+  .foot .col h4{font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin:0 0 12px}
+  .foot .col a{display:block;color:var(--dim);text-decoration:none;font-size:14px;margin-bottom:8px}
+  .foot .col a:hover{color:var(--fg)}
+  .legal-line{color:var(--faint);font-size:12.5px;padding:0 0 30px;line-height:1.7}
+  /* responsive */
+  @media(max-width:820px){
+    .hero{grid-template-columns:1fr;text-align:center;padding-top:44px}
+    .lead{margin-left:auto;margin-right:auto}.cta-row{justify-content:center}.trust{justify-content:center}
+    .eyebrow{margin:0 auto}
+    .steps,.grid{grid-template-columns:1fr}
+    .privacy .wrap2{grid-template-columns:1fr}.plans{grid-template-columns:1fr}
+    h1{font-size:40px}.sec-h h2{font-size:28px}
+  }
+  [data-lang="tr"] .en,[data-lang="en"] .tr{display:none}
+</style>
+</head>
+<body data-lang="en" class="lift">
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="/"><span class="dot"></span> SkinwellAI</a>
+    <nav class="links">
+      <a class="hide-m" href="#how">How it works</a>
+      <a class="hide-m" href="#features">Features</a>
+      <a class="hide-m" href="#privacy">Privacy</a>
+      <a class="hide-m" href="#pricing">Pricing</a>
+      <button class="langbtn" id="lang" onclick="toggleLang()">Türkçe</button>
+      <a class="btn btn-primary" href="#pricing"><span class="en">Get the app</span><span class="tr">Uygulamayı al</span></a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="wrap">
+  <section class="hero">
+    <div>
+      <span class="eyebrow">✦ <span class="en">Skin intelligence</span><span class="tr">Cilt zekâsı</span></span>
+      <h1><span class="en">Your skin,<br><span class="accent">understood.</span></span><span class="tr">Cildini,<br><span class="accent">anla.</span></span></h1>
+      <p class="lead">
+        <span class="en">Turn a selfie into clear, visual estimates of hydration, texture, redness and more — in seconds, on your phone. Plus a calm, personalized routine.</span>
+        <span class="tr">Bir selfie'yi saniyeler içinde net görsel nem, doku ve kızarıklık tahminlerine dönüştür — telefonunda. Üstüne sakin, kişiye özel bir rutin.</span>
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#pricing"><span class="en">See plans</span><span class="tr">Planları gör</span></a>
+        <a class="btn btn-ghost" href="#how"><span class="en">How it works →</span><span class="tr">Nasıl çalışır →</span></a>
+      </div>
+      <div class="trust">
+        <span><b>🔒 <span class="en">Private by design</span><span class="tr">Tasarımı gereği gizli</span></b></span>
+        <span><b>⚡ <span class="en">~60-second scan</span><span class="tr">~60 saniyelik tarama</span></b></span>
+        <span><b>🩺 <span class="en">Not a diagnosis</span><span class="tr">Teşhis değildir</span></b></span>
+      </div>
+    </div>
+    <!-- phone mockup (illustrative; demo data) -->
+    <div class="phone" aria-hidden="true">
+      <div class="screen">
+        <div class="top">
+          <div class="k">SKIN REPORT · DEMO</div>
+          <div class="score">
+            <div class="ring"><i>76</i></div>
+            <div>
+              <h3 class="en">Skin health</h3><h3 class="tr">Cilt sağlığı</h3>
+              <p class="sub en">Visual estimate · current photo conditions</p>
+              <p class="sub tr">Görsel tahmin · mevcut koşullarda</p>
+            </div>
+          </div>
+        </div>
+        <div class="bars">
+          <div class="bar"><div class="lbl"><span class="en">Hydration</span><span class="tr">Nem</span><span>79</span></div><div class="track"><div class="fill" style="width:79%;background:var(--cyan)"></div></div></div>
+          <div class="bar"><div class="lbl"><span class="en">Barrier</span><span class="tr">Bariyer</span><span>76</span></div><div class="track"><div class="fill" style="width:76%;background:var(--mint)"></div></div></div>
+          <div class="bar"><div class="lbl"><span class="en">Texture</span><span class="tr">Doku</span><span>58</span></div><div class="track"><div class="fill" style="width:58%;background:var(--amber)"></div></div></div>
+          <div class="bar"><div class="lbl"><span class="en">Redness</span><span class="tr">Kızarıklık</span><span>52</span></div><div class="track"><div class="fill" style="width:52%;background:var(--rose)"></div></div></div>
+        </div>
+        <div class="disc en">Illustrative demo. Estimates vary with lighting & camera. Not a medical device.</div>
+        <div class="disc tr">Örnek demo. Tahminler ışığa ve kameraya göre değişir. Tıbbi cihaz değildir.</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="wrap"><section id="how">
+  <div class="sec-h">
+    <span class="kicker"><span class="en">How it works</span><span class="tr">Nasıl çalışır</span></span>
+    <h2><span class="en">Three taps to insight</span><span class="tr">Üç dokunuşta içgörü</span></h2>
+    <p><span class="en">No clinic, no guesswork — just your camera and a calm, guided flow.</span><span class="tr">Klinik yok, tahmin yok — sadece kameran ve sakin, yönlendirilmiş bir akış.</span></p>
+  </div>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h3 class="en">Scan</h3><h3 class="tr">Tara</h3><p class="en">A smart camera guide coaches your lighting and framing, then captures a selfie.</p><p class="tr">Akıllı kamera rehberi ışığını ve çerçeveni ayarlar, sonra bir selfie çeker.</p></div>
+    <div class="step"><div class="n">2</div><h3 class="en">Analyze</h3><h3 class="tr">Analiz et</h3><p class="en">On-device-quality checks plus computer vision produce visual appearance estimates.</p><p class="tr">Kalite kontrolleri ve bilgisayarlı görü, görsel görünüm tahminleri üretir.</p></div>
+    <div class="step"><div class="n">3</div><h3 class="en">Improve</h3><h3 class="tr">Geliştir</h3><p class="en">Get a clear report, a tailored cosmetic routine, and progress you can track over time.</p><p class="tr">Net bir rapor, kişiye özel bir rutin ve zamanla izleyebileceğin ilerleme.</p></div>
+  </div>
+</section></div>
+
+<!-- FEATURES -->
+<div class="wrap"><section id="features">
+  <div class="sec-h">
+    <span class="kicker"><span class="en">Features</span><span class="tr">Özellikler</span></span>
+    <h2><span class="en">Everything in one calm app</span><span class="tr">Hepsi tek bir sakin uygulamada</span></h2>
+  </div>
+  <div class="grid">
+    <div class="feat"><div class="ic" style="background:#e7f5ee">🔬</div><h3 class="en">Skin scan</h3><h3 class="tr">Cilt taraması</h3><p class="en">Hydration, surface shine, texture, visible pores, redness and under-eye tone — each a visual estimate.</p><p class="tr">Nem, parlaklık, doku, gözenekler, kızarıklık ve göz altı tonu — her biri bir görsel tahmin.</p></div>
+    <div class="feat"><div class="ic" style="background:#f0e8fa">🗺️</div><h3 class="en">Facial map</h3><h3 class="tr">Yüz haritası</h3><p class="en">See which areas the estimate highlights, zone by zone.</p><p class="tr">Tahminin vurguladığı bölgeleri, bölge bölge gör.</p></div>
+    <div class="feat"><div class="ic" style="background:#fbeef3">✦</div><h3 class="en">Aesthetic view</h3><h3 class="tr">Estetik bakış</h3><p class="en">Photo-based proportion estimates — a fun, non-judgemental view, never a verdict on worth.</p><p class="tr">Fotoğrafa dayalı oran tahminleri — eğlenceli, yargılamayan bir bakış; asla değer yargısı değil.</p></div>
+    <div class="feat"><div class="ic" style="background:#e7f3f7">🧴</div><h3 class="en">Tailored routine</h3><h3 class="tr">Kişiye özel rutin</h3><p class="en">A calm, cosmetic AM/PM routine built around your profile.</p><p class="tr">Profiline göre sakin, kozmetik bir sabah/akşam rutini.</p></div>
+    <div class="feat"><div class="ic" style="background:#f6f0e3">📈</div><h3 class="en">Progress</h3><h3 class="tr">İlerleme</h3><p class="en">Track how estimates change over time under similar conditions.</p><p class="tr">Tahminlerin benzer koşullarda zamanla nasıl değiştiğini izle.</p></div>
+    <div class="feat"><div class="ic" style="background:#e7f5ee">🤖</div><h3 class="en">Optional AI summary</h3><h3 class="tr">İsteğe bağlı AI özeti</h3><p class="en">An opt-in narrative that explains your scores in plain language — your photo is never sent.</p><p class="tr">Skorlarını sade bir dille açıklayan, onaya bağlı bir özet — fotoğrafın asla gönderilmez.</p></div>
+  </div>
+</section></div>
+
+<!-- PRIVACY -->
+<section id="privacy">
+  <div class="privacy"><div class="wrap2">
+    <div>
+      <span class="kicker" style="color:#cbb9ee"><span class="en">Privacy &amp; trust</span><span class="tr">Gizlilik &amp; güven</span></span>
+      <h2><span class="en">Your face stays yours.</span><span class="tr">Yüzün sana ait kalır.</span></h2>
+      <p class="en">SkinwellAI is built privacy-first. Your face photo is processed to produce your analysis and is never sold or used to track you.</p>
+      <p class="tr">SkinwellAI gizlilik öncelikli kuruldu. Yüz fotoğrafın analizini üretmek için işlenir; satılmaz ve seni izlemek için kullanılmaz.</p>
+    </div>
+    <ul>
+      <li><span class="c">✓</span> <span class="en">Your face photo is <b>never</b> sent to any third-party AI.</span><span class="tr">Yüz fotoğrafın <b>asla</b> üçüncü taraf bir AI'a gönderilmez.</span></li>
+      <li><span class="c">✓</span> <span class="en">The optional AI summary sends only derived numeric scores — and only if you opt in.</span><span class="tr">İsteğe bağlı AI özeti yalnızca türetilmiş sayısal skorları gönderir — yalnızca onaylarsan.</span></li>
+      <li><span class="c">✓</span> <span class="en">No advertising, no third-party tracking, no model training without consent.</span><span class="tr">Reklam yok, üçüncü taraf izleme yok, onaysız model eğitimi yok.</span></li>
+      <li><span class="c">✓</span> <span class="en">Delete your account and data anytime, right inside the app.</span><span class="tr">Hesabını ve verilerini istediğin zaman uygulama içinden sil.</span></li>
+    </ul>
+  </div></div>
+</section>
+
+<!-- PRICING -->
+<div class="wrap"><section id="pricing">
+  <div class="sec-h">
+    <span class="kicker"><span class="en">Pricing</span><span class="tr">Fiyatlandırma</span></span>
+    <h2><span class="en">Simple, honest pricing</span><span class="tr">Basit, dürüst fiyatlandırma</span></h2>
+    <p><span class="en">Core scanning and your report are free. Premium unlocks the full experience.</span><span class="tr">Temel tarama ve raporun ücretsiz. Premium tüm deneyimi açar.</span></p>
+  </div>
+  <div class="plans">
+    <div class="plan">
+      <h3 class="en">Pro Monthly</h3><h3 class="tr">Pro Aylık</h3>
+      <div class="price">$9.99 <small>/ <span class="en">mo</span><span class="tr">ay</span></small></div>
+      <p class="per en">Billed monthly · cancel anytime</p><p class="per tr">Aylık faturalanır · istediğin zaman iptal</p>
+      <ul>
+        <li><span class="c">✓</span> <span class="en">Unlimited scans</span><span class="tr">Sınırsız tarama</span></li>
+        <li><span class="c">✓</span> <span class="en">Deeper insights &amp; advanced report</span><span class="tr">Daha derin içgörüler &amp; gelişmiş rapor</span></li>
+        <li><span class="c">✓</span> <span class="en">Your skin timeline</span><span class="tr">Cilt zaman çizelgen</span></li>
+      </ul>
+    </div>
+    <div class="plan best">
+      <span class="tag"><span class="en">Best value · save 50%</span><span class="tr">En avantajlı · %50 tasarruf</span></span>
+      <h3 class="en">Pro Annual</h3><h3 class="tr">Pro Yıllık</h3>
+      <div class="price">$59.99 <small>/ <span class="en">yr</span><span class="tr">yıl</span></small></div>
+      <p class="per en">≈ $5.00/mo · billed yearly</p><p class="per tr">≈ $5.00/ay · yıllık faturalanır</p>
+      <ul>
+        <li><span class="c">✓</span> <span class="en">Everything in Pro Monthly</span><span class="tr">Pro Aylık'taki her şey</span></li>
+        <li><span class="c">✓</span> <span class="en">Best price per month</span><span class="tr">Aylık en iyi fiyat</span></li>
+        <li><span class="c">✓</span> <span class="en">Auto-renews; cancel anytime in Settings</span><span class="tr">Otomatik yenilenir; Ayarlar'dan iptal</span></li>
+      </ul>
+    </div>
+  </div>
+  <p class="pnote"><span class="en">No free trial · no lifetime plan · prices shown in your local currency at checkout. Subscriptions are billed by Apple.</span><span class="tr">Ücretsiz deneme yok · ömür boyu plan yok · fiyatlar ödemede yerel para biriminde gösterilir. Abonelikler Apple tarafından faturalanır.</span></p>
+</section></div>
+
+<!-- FAQ -->
+<div class="wrap"><section id="faq">
+  <div class="sec-h">
+    <span class="kicker">FAQ</span>
+    <h2><span class="en">Good questions</span><span class="tr">Güzel sorular</span></h2>
+  </div>
+  <div class="faq">
+    <details><summary><span class="en">Is SkinwellAI a medical or diagnostic tool?</span><span class="tr">SkinwellAI tıbbi ya da teşhis aracı mı?</span></summary>
+      <p class="en">No. SkinwellAI is a cosmetic wellness app. It produces visual appearance estimates under your current photo conditions — it is not a medical device and does not provide diagnosis or treatment. For any health concern, consult a qualified professional.</p>
+      <p class="tr">Hayır. SkinwellAI bir kozmetik wellness uygulamasıdır. Mevcut fotoğraf koşullarında görsel görünüm tahminleri üretir — tıbbi cihaz değildir, teşhis veya tedavi sağlamaz. Sağlık endişelerinde yetkili bir uzmana danışın.</p></details>
+    <details><summary><span class="en">Where does my face photo go?</span><span class="tr">Yüz fotoğrafım nereye gidiyor?</span></summary>
+      <p class="en">It is processed to compute your analysis and is never sold or used to track you. It is never sent to any third-party AI. The optional AI summary sends only derived numeric scores, and only if you opt in. See our Privacy Policy and AI Data Processing pages.</p>
+      <p class="tr">Analizini hesaplamak için işlenir; satılmaz ve seni izlemek için kullanılmaz. Asla üçüncü taraf bir AI'a gönderilmez. İsteğe bağlı AI özeti yalnızca türetilmiş sayısal skorları, yalnızca onaylarsan gönderir. Gizlilik ve AI Veri İşleme sayfalarına bakın.</p></details>
+    <details><summary><span class="en">How accurate is it?</span><span class="tr">Ne kadar doğru?</span></summary>
+      <p class="en">Every metric is an image-derived visual estimate, not a clinical measurement. Results vary with lighting, camera and framing — that's why the app shows a confidence level and suggests a retake when a photo is low quality.</p>
+      <p class="tr">Her metrik, klinik bir ölçüm değil, görüntüden türetilmiş görsel bir tahmindir. Sonuçlar ışık, kamera ve çerçeveye göre değişir — bu yüzden uygulama bir güven seviyesi gösterir ve düşük kaliteli fotoğraflarda yeniden çekim önerir.</p></details>
+    <details><summary><span class="en">Can I cancel my subscription?</span><span class="tr">Aboneliğimi iptal edebilir miyim?</span></summary>
+      <p class="en">Yes — anytime from Apple Settings → Subscriptions. Access continues until the end of the current period. Core scanning stays free.</p>
+      <p class="tr">Evet — istediğin zaman Apple Ayarlar → Abonelikler'den. Erişim mevcut dönem sonuna kadar sürer. Temel tarama ücretsiz kalır.</p></details>
+    <details><summary><span class="en">Can I delete my data?</span><span class="tr">Verilerimi silebilir miyim?</span></summary>
+      <p class="en">Yes. Profile → Delete Account erases your personal data and raw images. See our Account Deletion page.</p>
+      <p class="tr">Evet. Profil → Hesabı Sil, kişisel verilerini ve ham görüntülerini siler. Hesap Silme sayfasına bakın.</p></details>
+  </div>
+</section></div>
+
+<!-- FINAL CTA -->
+<section>
+  <div class="final">
+    <h2><span class="en">Understand your skin today.</span><span class="tr">Cildini bugün anla.</span></h2>
+    <p><span class="en">A calmer, clearer skincare routine starts with one scan.</span><span class="tr">Daha sakin, daha net bir cilt bakımı tek bir taramayla başlar.</span></p>
+    <a class="btn btn-primary" href="#pricing" style="padding:14px 28px"><span class="en">Coming soon to the App Store</span><span class="tr">App Store'da çok yakında</span></a>
+    <p style="color:var(--faint);font-size:13px;margin-top:14px"><span class="en">iOS · Currently in closed beta</span><span class="tr">iOS · Şu anda kapalı beta</span></p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap foot">
+    <div class="col" style="max-width:280px">
+      <a class="brand" href="/" style="margin-bottom:10px"><span class="dot"></span> SkinwellAI</a>
+      <p style="color:var(--dim);font-size:14px;margin:0">
+        <span class="en">Visual skin &amp; face analysis, by camera. Cosmetic wellness — not a medical device.</span>
+        <span class="tr">Kamerayla görsel cilt ve yüz analizi. Kozmetik wellness — tıbbi cihaz değildir.</span>
+      </p>
+    </div>
+    <div class="col">
+      <h4><span class="en">Product</span><span class="tr">Ürün</span></h4>
+      <a href="#how"><span class="en">How it works</span><span class="tr">Nasıl çalışır</span></a>
+      <a href="#features"><span class="en">Features</span><span class="tr">Özellikler</span></a>
+      <a href="#pricing"><span class="en">Pricing</span><span class="tr">Fiyatlandırma</span></a>
+    </div>
+    <div class="col">
+      <h4>Legal</h4>
+      <a href="/privacy"><span class="en">Privacy Policy</span><span class="tr">Gizlilik Politikası</span></a>
+      <a href="/terms"><span class="en">Terms of Use</span><span class="tr">Kullanım Koşulları</span></a>
+      <a href="/subscription-terms"><span class="en">Subscription Terms</span><span class="tr">Abonelik Şartları</span></a>
+      <a href="/ai-data"><span class="en">AI Data Processing</span><span class="tr">AI Veri İşleme</span></a>
+      <a href="/account-deletion"><span class="en">Account Deletion</span><span class="tr">Hesap Silme</span></a>
+    </div>
+    <div class="col">
+      <h4><span class="en">Company</span><span class="tr">Şirket</span></h4>
+      <a href="/support"><span class="en">Support</span><span class="tr">Destek</span></a>
+      <a href="/contact"><span class="en">Contact</span><span class="tr">İletişim</span></a>
+      <a href="mailto:support@skinwellai.com">support@skinwellai.com</a>
+    </div>
+  </div>
+  <div class="wrap legal-line">
+    © <span id="yr">2026</span> Demircan Yılmaz (SkinwellAI) · şahıs işletmesi / sole proprietorship, Türkiye ·
+    Cevizli Mah. Ulubey Sk. Nursanlar Plaza A Blok No: 4A, Kartal, İstanbul 34862, Türkiye ·
+    <span class="en">SkinwellAI is a cosmetic wellness product, not a medical device, and does not provide diagnosis or treatment.</span>
+    <span class="tr">SkinwellAI kozmetik bir wellness ürünüdür, tıbbi cihaz değildir ve teşhis veya tedavi sağlamaz.</span>
+  </div>
+</footer>
+
+<script>
+  function toggleLang(){
+    var b=document.body, next=b.getAttribute('data-lang')==='en'?'tr':'en';
+    b.setAttribute('data-lang',next);
+    document.getElementById('lang').textContent = next==='en' ? 'Türkçe' : 'English';
+    document.documentElement.lang = next;
+    try{localStorage.setItem('sw_lang',next)}catch(e){}
+  }
+  (function(){
+    var saved; try{saved=localStorage.getItem('sw_lang')}catch(e){}
+    var nav=(navigator.language||'en').toLowerCase();
+    var lang = saved || (nav.indexOf('tr')===0 ? 'tr' : 'en');
+    if(lang==='tr'){document.body.setAttribute('data-lang','tr');document.getElementById('lang').textContent='English';document.documentElement.lang='tr';}
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  })();
+</script>
+</body>
+</html>

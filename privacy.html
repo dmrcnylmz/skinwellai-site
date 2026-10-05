@@ -31,169 +31,94 @@ code{background:#f0eef4;padding:1px 5px;border-radius:4px;font-size:13px}
 <div class="toggle"><button id="b-en" class="active" onclick="setLang('en')">English</button>
 <button id="b-tr" onclick="setLang('tr')">Türkçe</button></div>
 <section id="en"><h2>English</h2>
-<p>SkinwellAI ("we", "us") provides a cosmetic skin- and facial-appearance analysis</p>
-<p>app. This policy explains what we collect, why, who processes it, and the rights</p>
-<p>you have. <strong>SkinwellAI is a wellness product, not a medical device</strong> — see our</p>
-<p>Terms.</p>
+<p>SkinwellAI ("we", "us") provides a cosmetic skin- and facial-appearance analysis app. This policy explains what we collect, why, who processes it, and the rights you have. <strong>SkinwellAI is a wellness product, not a medical device</strong> — see our Terms.</p>
 <h3>1. What we collect and why</h3>
 <ul>
-<li><strong>Face photo (selfie you capture)</strong> — to compute visual appearance estimates.</li>
-</ul>
-<p>  Processed only by <strong>our own backend</strong> computer vision (MediaPipe/OpenCV).</p>
-<p>  Stored privately (access only via short-lived signed URLs), **retained for at</p>
-<p>  most 30 days<strong>, and </strong>deleted when you delete your account**.</p>
-<ul>
-<li><strong>Derived skin metrics &amp; aesthetic scores</strong> — numeric estimates computed from</li>
-</ul>
-<p>  your photo (e.g. hydration appearance, redness estimate). Stored with your</p>
-<p>  account; anonymized on deletion.</p>
-<ul>
+<li><strong>Face photo (selfie you capture)</strong> — to compute visual appearance estimates. Processed only by <strong>our own backend</strong> computer vision (MediaPipe/OpenCV). Stored privately (access only via short-lived signed URLs), <strong>retained for at most 30 days</strong>, and <strong>deleted when you delete your account</strong>.</li>
+<li><strong>Derived skin metrics &amp; aesthetic scores</strong> — numeric estimates computed from your photo (e.g. hydration appearance, redness estimate). Stored with your account; anonymized on deletion.</li>
 <li><strong>AI narrative text</strong> — an optional written summary of your scores.</li>
-<li><strong>Health data (Apple Health / Health Connect)</strong> — sleep, heart-rate</li>
-</ul>
-<p>  variability (HRV), resting heart rate, and mood, *only if you connect it*.</p>
-<p>  This data is read <strong>on your device only</strong>, used to show patterns in your Skin</p>
-<p>  Journal, and is **never sent to our servers, never shared, and never used for</p>
-<p>  advertising**. You can disconnect at any time.</p>
-<ul>
-<li><strong>Account &amp; identity</strong> — email and, if you use Sign in with Apple/Google, the</li>
-</ul>
-<p>  provider's user identifier. Phone number if you use phone sign-in.</p>
-<ul>
+<li><strong>Health data (Apple Health / Health Connect)</strong> — sleep, heart-rate variability (HRV), resting heart rate, and mood, *only if you connect it*. This data is read <strong>on your device only</strong>, used to show patterns in your Skin Journal, and is <strong>never sent to our servers, never shared, and never used for advertising</strong>. You can disconnect at any time.</li>
+<li><strong>Account &amp; identity</strong> — email and, if you use Sign in with Apple/Google, the provider's user identifier. Phone number if you use phone sign-in.</li>
 <li><strong>Subscription status &amp; purchase events</strong> — to unlock paid features.</li>
 <li><strong>Device push token</strong> — to send reminders you enable.</li>
-<li><strong>Usage analytics</strong> — only if you allow it; used to improve the product.</li>
+<li><strong>Usage analytics</strong> — only if you allow it; used to improve the product. This includes which suggested product you opened (a catalog code), never your scores, photos or health data.</li>
+<li><strong>Ad measurement (Meta)</strong> — app-open, sign-up and purchase events, used to measure our ads. Your advertising identifier is used only if you allow tracking when iOS asks (App Tracking Transparency); otherwise these events are sent without it, in limited-data mode.</li>
 <li><strong>Crash/diagnostics</strong> — pseudonymous stability data.</li>
 </ul>
 <h3>2. The face photo is NOT sent to OpenAI</h3>
-<p>Your face image <strong>never leaves our own systems for AI narrative generation.</strong></p>
-<p>When you <strong>explicitly opt in</strong> to the AI narrative, we send **only the derived</p>
-<p>numeric scores and a skin-profile label, as text — no image** — to our LLM</p>
-<p>provider (OpenAI). If you do not opt in, a narrative is generated on our own</p>
-<p>servers with no third-party AI. You can withdraw this consent at any time in</p>
-<p><strong>Profile → Privacy &amp; AI</strong>. See the AI Data Processing page for detail.</p>
+<p>Your face image <strong>never leaves our own systems for AI narrative generation.</strong> When you <strong>explicitly opt in</strong> to the AI narrative, we send <strong>only the derived numeric scores and a skin-profile label, as text — no image</strong> — to our LLM provider (OpenAI). If you do not opt in, a narrative is generated on our own servers with no third-party AI. You can withdraw this consent at any time in <strong>Profile → Privacy &amp; AI</strong>. See the AI Data Processing page for detail.</p>
 <h3>3. Who processes your data (sub-processors)</h3>
 <ul>
-<li><strong>OpenAI</strong> — derived numeric scores (text only, no image), AI narrative,</li>
-</ul>
-<p>  consent-gated; not used for advertising; not used to train models by default.</p>
-<ul>
+<li><strong>OpenAI</strong> — derived numeric scores (text only, no image), AI narrative, consent-gated; not used for advertising; not used to train models by default.</li>
 <li><strong>RevenueCat / Apple</strong> — subscription and billing management.</li>
 <li><strong>Sentry</strong> — crash and diagnostics.</li>
 <li><strong>Expo Push / Apple Push (APNs)</strong> — notification delivery.</li>
-<li><strong>Cloud hosting + object storage</strong> — running the service and storing images</li>
+<li><strong>Meta (Facebook SDK)</strong> — ad measurement of app opens, sign-ups and purchases, as described in section 1; tracking only with your iOS permission.</li>
+<li><strong>Cloud hosting + object storage</strong> — running the service and storing images privately. All transfers use HTTPS/TLS.</li>
 </ul>
-<p>  privately. All transfers use HTTPS/TLS.</p>
 <h3>4. What we do NOT do</h3>
-<p>We do <strong>not</strong> track you across other apps or websites, do <strong>not</strong> use</p>
-<p>advertising SDKs, and do <strong>not</strong> sell your personal data.</p>
+<p>We do <strong>not</strong> sell your personal data. We do <strong>not</strong> send your photos, skin scores, face geometry or health data to advertisers, retailers or affiliate networks. We track you across other companies' apps and websites <strong>only if you allow it</strong> in the iOS prompt, and only to measure app installs and purchases.</p>
+<h3>4a. Product suggestions and links</h3>
+<p>Pro routines may suggest products from a curated catalog checked against each brand's own product page. Tapping a product opens the brand's or retailer's website in your browser; we send them nothing about you. Some links may be affiliate links: when one is, the app says so next to the link, and we may earn a commission if you buy. Paid placements are labelled <strong>"Sponsored"</strong> and never change which products are considered suitable for you. Physical products are bought on those websites, never through the app.</p>
 <h3>5. Retention &amp; deletion</h3>
-<p>Raw scan images: ≤30 days (and removed on deletion). Account data: kept until you</p>
-<p>delete your account, then erased or anonymized. Deletion is available in-app</p>
-<p>(<strong>Profile → Delete Account</strong>) and described on the Account Deletion page.</p>
+<p>Raw scan images: ≤30 days (and removed on deletion). Account data: kept until you delete your account, then erased or anonymized. Deletion is available in-app (<strong>Profile → Delete Account</strong>) and described on the Account Deletion page.</p>
 <h3>6. Your rights</h3>
-<p>Depending on where you live (incl. GDPR/KVKK), you may access, correct, export,</p>
-<p>or delete your data, and withdraw consent. Use in-app <strong>Export my data</strong> and</p>
-<p><strong>Delete Account</strong>, or contact Demircan Yılmaz — support@skinwellai.com.</p>
+<p>Depending on where you live (incl. GDPR/KVKK), you may access, correct, export, or delete your data, and withdraw consent. Use in-app <strong>Export my data</strong> and <strong>Delete Account</strong>, or contact Demircan Yılmaz — support@skinwellai.com.</p>
 <h3>7. Children</h3>
-<p>SkinwellAI is not directed to children under 13 (or the minimum age in your</p>
-<p>region). We do not knowingly collect their data.</p>
+<p>SkinwellAI is not directed to children under 13 (or the minimum age in your region). We do not knowingly collect their data.</p>
 <h3>8. Security</h3>
-<p>Encryption in transit (TLS); images stored privately with signed-URL access only</p>
-<p>and provider-managed encryption at rest.</p>
+<p>Encryption in transit (TLS); images stored privately with signed-URL access only and provider-managed encryption at rest.</p>
 <h3>9. International transfers</h3>
-<p>Processors may operate outside your country; transfers use appropriate</p>
-<p>safeguards.</p>
+<p>Processors may operate outside your country; transfers use appropriate safeguards.</p>
 <h3>10. Changes</h3>
-<p>We will update the effective date and, for material changes, prompt you in-app</p>
-<p>(including re-consent for AI processing).</p>
+<p>We will update the effective date and, for material changes, prompt you in-app (including re-consent for AI processing).</p>
 <h3>11. Contact</h3>
-<p>Demircan Yılmaz, Cevizli Mah. Ulubey Sk. Nursanlar Plaza A Blok No: 4A İç Kapı No: 113, Kartal, İstanbul 34862, Türkiye — support@skinwellai.com. Governing law:</p>
-<p>Türkiye Cumhuriyeti / Republic of Türkiye — İstanbul (Anadolu) courts.</p>
+<p>Demircan Yılmaz, Cevizli Mah. Ulubey Sk. Nursanlar Plaza A Blok No: 4A İç Kapı No: 113, Kartal, İstanbul 34862, Türkiye — support@skinwellai.com. Governing law: Türkiye Cumhuriyeti / Republic of Türkiye — İstanbul (Anadolu) courts.</p>
 <hr/></section>
 <section id="tr" class="hidden"><h2>Türkçe</h2>
-<p>SkinwellAI ("biz"), kozmetik amaçlı cilt ve yüz görünümü analizi sunan bir</p>
-<p>uygulamadır. Bu politika; hangi verileri, neden topladığımızı, kimlerin</p>
-<p>işlediğini ve haklarınızı açıklar. **SkinwellAI bir wellness ürünüdür, tıbbi</p>
-<p>cihaz değildir** — Kullanım Şartları'na bakın.</p>
+<p>SkinwellAI ("biz"), kozmetik amaçlı cilt ve yüz görünümü analizi sunan bir uygulamadır. Bu politika; hangi verileri, neden topladığımızı, kimlerin işlediğini ve haklarınızı açıklar. <strong>SkinwellAI bir wellness ürünüdür, tıbbi cihaz değildir</strong> — Kullanım Şartları'na bakın.</p>
 <h3>1. Topladığımız veriler ve amaçları</h3>
 <ul>
-<li><strong>Yüz fotoğrafı (çektiğiniz selfie)</strong> — görsel görünüm tahminlerini hesaplamak</li>
-</ul>
-<p>  için. Yalnızca <strong>kendi arka uç</strong> bilgisayarlı görü sistemimizce (MediaPipe/</p>
-<p>  OpenCV) işlenir. Özel olarak (yalnızca kısa ömürlü imzalı bağlantılarla</p>
-<p>  erişilir) saklanır, <strong>en fazla 30 gün</strong> tutulur ve **hesabınızı sildiğinizde</p>
-<p>  silinir**.</p>
-<ul>
-<li><strong>Türetilmiş cilt metrikleri ve estetik skorlar</strong> — fotoğrafınızdan hesaplanan</li>
-</ul>
-<p>  sayısal tahminler. Hesabınızla saklanır; silmede anonimleştirilir.</p>
-<ul>
+<li><strong>Yüz fotoğrafı (çektiğiniz selfie)</strong> — görsel görünüm tahminlerini hesaplamak için. Yalnızca <strong>kendi arka uç</strong> bilgisayarlı görü sistemimizce (MediaPipe/ OpenCV) işlenir. Özel olarak (yalnızca kısa ömürlü imzalı bağlantılarla erişilir) saklanır, <strong>en fazla 30 gün</strong> tutulur ve <strong>hesabınızı sildiğinizde silinir</strong>.</li>
+<li><strong>Türetilmiş cilt metrikleri ve estetik skorlar</strong> — fotoğrafınızdan hesaplanan sayısal tahminler. Hesabınızla saklanır; silmede anonimleştirilir.</li>
 <li><strong>AI anlatı metni</strong> — skorlarınızın isteğe bağlı yazılı özeti.</li>
-<li><strong>Sağlık verisi (Apple Health / Health Connect)</strong> — uyku, kalp atış hızı</li>
-</ul>
-<p>  değişkenliği (HRV), dinlenme nabzı ve ruh hali, *yalnızca bağlarsanız*. Bu</p>
-<p>  veriler <strong>yalnızca cihazınızda</strong> okunur, Skin Journal'da örüntüleri göstermek</p>
-<p>  için kullanılır; **sunucularımıza gönderilmez, paylaşılmaz ve reklam için</p>
-<p>  kullanılmaz**. Bağlantıyı istediğiniz zaman kesebilirsiniz.</p>
-<ul>
-<li><strong>Hesap ve kimlik</strong> — e-posta; Apple/Google ile giriş kullanırsanız sağlayıcı</li>
-</ul>
-<p>  kimliği; telefonla giriş kullanırsanız telefon numarası.</p>
-<ul>
+<li><strong>Sağlık verisi (Apple Health / Health Connect)</strong> — uyku, kalp atış hızı değişkenliği (HRV), dinlenme nabzı ve ruh hali, *yalnızca bağlarsanız*. Bu veriler <strong>yalnızca cihazınızda</strong> okunur, Skin Journal'da örüntüleri göstermek için kullanılır; <strong>sunucularımıza gönderilmez, paylaşılmaz ve reklam için kullanılmaz</strong>. Bağlantıyı istediğiniz zaman kesebilirsiniz.</li>
+<li><strong>Hesap ve kimlik</strong> — e-posta; Apple/Google ile giriş kullanırsanız sağlayıcı kimliği; telefonla giriş kullanırsanız telefon numarası.</li>
 <li><strong>Abonelik durumu ve satın alma olayları</strong> — ücretli özellikleri açmak için.</li>
 <li><strong>Cihaz bildirim jetonu</strong> — açtığınız hatırlatıcılar için.</li>
-<li><strong>Kullanım analitiği</strong> — yalnızca izin verirseniz; ürünü iyileştirmek için.</li>
+<li><strong>Kullanım analitiği</strong> — yalnızca izin verirseniz; ürünü iyileştirmek için. Önerilen hangi ürünü açtığınız (bir katalog kodu) da buna dahildir; skorlarınız, fotoğraflarınız veya sağlık verileriniz asla.</li>
+<li><strong>Reklam ölçümü (Meta)</strong> — reklamlarımızı ölçmek için uygulama açılışı, kayıt ve satın alma olayları. Reklam kimliğiniz yalnızca iOS sorduğunda izlemeye izin verirseniz (App Tracking Transparency) kullanılır; aksi halde bu olaylar o kimlik olmadan, sınırlı veri modunda gönderilir.</li>
 <li><strong>Çökme/teşhis</strong> — takma adlı kararlılık verisi.</li>
 </ul>
 <h3>2. Yüz fotoğrafı OpenAI'a GÖNDERİLMEZ</h3>
-<p>Yüz görüntünüz, AI anlatı üretimi için **sistemlerimizden hiçbir zaman</p>
-<p>çıkmaz.<strong> AI anlatısını </strong>açıkça onayladığınızda**, AI sağlayıcımıza (OpenAI)</p>
-<p>**yalnızca türetilmiş sayısal skorlar ve bir cilt-profili etiketi — metin</p>
-<p>olarak, görüntü olmadan** gönderilir. Onaylamazsanız anlatı, üçüncü taraf AI</p>
-<p>olmadan kendi sunucularımızda üretilir. Bu onayı <strong>Profil → Gizlilik ve AI</strong></p>
-<p>bölümünden istediğiniz an geri çekebilirsiniz. Ayrıntı için AI Veri İşleme</p>
-<p>sayfasına bakın.</p>
+<p>Yüz görüntünüz, AI anlatı üretimi için <strong>sistemlerimizden hiçbir zaman çıkmaz.</strong> AI anlatısını <strong>açıkça onayladığınızda</strong>, AI sağlayıcımıza (OpenAI) <strong>yalnızca türetilmiş sayısal skorlar ve bir cilt-profili etiketi — metin olarak, görüntü olmadan</strong> gönderilir. Onaylamazsanız anlatı, üçüncü taraf AI olmadan kendi sunucularımızda üretilir. Bu onayı <strong>Profil → Gizlilik ve AI</strong> bölümünden istediğiniz an geri çekebilirsiniz. Ayrıntı için AI Veri İşleme sayfasına bakın.</p>
 <h3>3. Verinizi kimler işler (alt işleyiciler)</h3>
 <ul>
-<li><strong>OpenAI</strong> — türetilmiş sayısal skorlar (yalnızca metin, görüntü yok), AI</li>
-</ul>
-<p>  anlatısı, onaya bağlı; reklam için kullanılmaz; varsayılan olarak model</p>
-<p>  eğitiminde kullanılmaz.</p>
-<ul>
+<li><strong>OpenAI</strong> — türetilmiş sayısal skorlar (yalnızca metin, görüntü yok), AI anlatısı, onaya bağlı; reklam için kullanılmaz; varsayılan olarak model eğitiminde kullanılmaz.</li>
 <li><strong>RevenueCat / Apple</strong> — abonelik ve faturalandırma.</li>
 <li><strong>Sentry</strong> — çökme ve teşhis.</li>
 <li><strong>Expo Push / Apple Push (APNs)</strong> — bildirim iletimi.</li>
-<li><strong>Bulut barındırma + nesne depolama</strong> — hizmeti çalıştırma ve görüntüleri özel</li>
+<li><strong>Meta (Facebook SDK)</strong> — 1. bölümde anlatıldığı gibi uygulama açılışı, kayıt ve satın almaların reklam ölçümü; izleme yalnızca iOS izninizle.</li>
+<li><strong>Bulut barındırma + nesne depolama</strong> — hizmeti çalıştırma ve görüntüleri özel saklama. Tüm aktarımlar HTTPS/TLS ile yapılır.</li>
 </ul>
-<p>  saklama. Tüm aktarımlar HTTPS/TLS ile yapılır.</p>
 <h3>4. Yapmadıklarımız</h3>
-<p>Sizi başka uygulama veya sitelerde <strong>izlemeyiz</strong>, reklam SDK'leri</p>
-<p><strong>kullanmayız</strong> ve kişisel verinizi <strong>satmayız</strong>.</p>
+<p>Kişisel verinizi <strong>satmayız</strong>. Fotoğraflarınızı, cilt skorlarınızı, yüz geometrinizi veya sağlık verilerinizi reklamverenlere, satıcılara ya da satış ortaklığı ağlarına <strong>göndermeyiz</strong>. Sizi başka şirketlerin uygulama ve sitelerinde <strong>yalnızca iOS isteminde izin verirseniz</strong> ve yalnızca uygulama yükleme ve satın almalarını ölçmek için izleriz.</p>
+<h3>4a. Ürün önerileri ve bağlantılar</h3>
+<p>Pro rutinler, her markanın kendi ürün sayfasından doğrulanmış seçili bir katalogdan ürün önerebilir. Bir ürüne dokunduğunuzda markanın veya satıcının sitesi tarayıcınızda açılır; onlara sizinle ilgili hiçbir şey göndermeyiz. Bazı bağlantılar satış ortaklığı bağlantısı olabilir: öyle olduğunda uygulama bunu bağlantının yanında belirtir ve satın alırsanız komisyon kazanabiliriz. Ücretli yerleşimler <strong>"Sponsorlu"</strong> olarak etiketlenir ve hangi ürünlerin size uygun sayıldığını asla değiştirmez. Fiziksel ürünler uygulama içinden değil, o sitelerden satın alınır.</p>
 <h3>5. Saklama ve silme</h3>
-<p>Ham tarama görüntüleri: ≤30 gün (ve silmede kaldırılır). Hesap verisi: hesabınızı</p>
-<p>silene kadar tutulur, sonra silinir veya anonimleştirilir. Silme uygulama içinde</p>
-<p>(<strong>Profil → Hesabı Sil</strong>) yapılabilir ve Hesap Silme sayfasında anlatılır.</p>
+<p>Ham tarama görüntüleri: ≤30 gün (ve silmede kaldırılır). Hesap verisi: hesabınızı silene kadar tutulur, sonra silinir veya anonimleştirilir. Silme uygulama içinde (<strong>Profil → Hesabı Sil</strong>) yapılabilir ve Hesap Silme sayfasında anlatılır.</p>
 <h3>6. Haklarınız</h3>
-<p>Bulunduğunuz yere göre (GDPR/KVKK dahil) verinize erişme, düzeltme, dışa aktarma,</p>
-<p>silme ve onayı geri çekme haklarına sahip olabilirsiniz. Uygulama içi **Verilerimi</p>
-<p>dışa aktar<strong> ve </strong>Hesabı Sil** seçeneklerini kullanın veya Demircan Yılmaz — support@skinwellai.com ile</p>
-<p>iletişime geçin.</p>
+<p>Bulunduğunuz yere göre (GDPR/KVKK dahil) verinize erişme, düzeltme, dışa aktarma, silme ve onayı geri çekme haklarına sahip olabilirsiniz. Uygulama içi <strong>Verilerimi dışa aktar</strong> ve <strong>Hesabı Sil</strong> seçeneklerini kullanın veya Demircan Yılmaz — support@skinwellai.com ile iletişime geçin.</p>
 <h3>7. Çocuklar</h3>
-<p>SkinwellAI 13 yaş altı (veya bölgenizdeki asgari yaş) çocuklara yönelik değildir;</p>
-<p>bilerek verilerini toplamayız.</p>
+<p>SkinwellAI 13 yaş altı (veya bölgenizdeki asgari yaş) çocuklara yönelik değildir; bilerek verilerini toplamayız.</p>
 <h3>8. Güvenlik</h3>
-<p>Aktarımda şifreleme (TLS); görüntüler özel olarak yalnızca imzalı bağlantı</p>
-<p>erişimiyle ve sağlayıcı yönetimli şifrelemeyle saklanır.</p>
+<p>Aktarımda şifreleme (TLS); görüntüler özel olarak yalnızca imzalı bağlantı erişimiyle ve sağlayıcı yönetimli şifrelemeyle saklanır.</p>
 <h3>9. Uluslararası aktarımlar</h3>
-<p>İşleyiciler ülkeniz dışında faaliyet gösterebilir; aktarımlar uygun</p>
-<p>güvencelerle yapılır.</p>
+<p>İşleyiciler ülkeniz dışında faaliyet gösterebilir; aktarımlar uygun güvencelerle yapılır.</p>
 <h3>10. Değişiklikler</h3>
-<p>Yürürlük tarihini güncelleriz ve önemli değişikliklerde uygulama içinde sizi</p>
-<p>bilgilendiririz (AI işleme için yeniden onay dahil).</p>
+<p>Yürürlük tarihini güncelleriz ve önemli değişikliklerde uygulama içinde sizi bilgilendiririz (AI işleme için yeniden onay dahil).</p>
 <h3>11. İletişim</h3>
-<p>Demircan Yılmaz, Cevizli Mah. Ulubey Sk. Nursanlar Plaza A Blok No: 4A İç Kapı No: 113, Kartal, İstanbul 34862, Türkiye — support@skinwellai.com. Geçerli hukuk:</p>
-<p>Türkiye Cumhuriyeti / Republic of Türkiye — İstanbul (Anadolu) courts.</p></section>
+<p>Demircan Yılmaz, Cevizli Mah. Ulubey Sk. Nursanlar Plaza A Blok No: 4A İç Kapı No: 113, Kartal, İstanbul 34862, Türkiye — support@skinwellai.com. Geçerli hukuk: Türkiye Cumhuriyeti / Republic of Türkiye — İstanbul (Anadolu) courts.</p></section>
 <footer>SkinwellAI · cosmetic wellness, not a medical device.</footer>
 </div>
 <script>function setLang(l){document.getElementById('en').classList.toggle('hidden',l!=='en');

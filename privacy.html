@@ -47,9 +47,12 @@ code{background:#f0eef4;padding:1px 5px;border-radius:4px;font-size:13px}
 </ul>
 <h3>2. The face photo is NOT sent to OpenAI</h3>
 <p>Your face image <strong>never leaves our own systems for AI narrative generation.</strong> When you <strong>explicitly opt in</strong> to the AI narrative, we send <strong>only the derived numeric scores and a skin-profile label, as text — no image</strong> — to our LLM provider (OpenAI). If you do not opt in, a narrative is generated on our own servers with no third-party AI. You can withdraw this consent at any time in <strong>Profile → Privacy &amp; AI</strong>. See the AI Data Processing page for detail.</p>
+<h3>2a. Product photos (the product scanner)</h3>
+<p>When the scanner can't find a product by its barcode, it takes a photo of the <strong>product</strong> (its ingredient list or its front label) and sends that photo to our AI provider (OpenAI) <strong>only to read the printed text</strong> — the ingredient list, the product name and the brand. The verdict itself is computed on our own servers from that text and your skin profile, not by the AI. The photo is <strong>not stored</strong> by us: it is processed for that one request and discarded. Point the camera at the product, not at people; the screen tells you when a photo is taken. Barcode checks send only the barcode number to the Open Beauty Facts product database — nothing about you.</p>
 <h3>3. Who processes your data (sub-processors)</h3>
 <ul>
-<li><strong>OpenAI</strong> — derived numeric scores (text only, no image), AI narrative, consent-gated; not used for advertising; not used to train models by default.</li>
+<li><strong>OpenAI</strong> — (a) photos of products, to transcribe the printed ingredient list, name and brand (not stored by us); (b) derived numeric skin scores (text only, no face image) for the consent-gated AI narrative. Not used for advertising; not used to train models by default.</li>
+<li><strong>Open Beauty Facts</strong> — barcode look-ups (the barcode number only).</li>
 <li><strong>RevenueCat / Apple</strong> — subscription and billing management.</li>
 <li><strong>Sentry</strong> — crash and diagnostics.</li>
 <li><strong>Expo Push / Apple Push (APNs)</strong> — notification delivery.</li>
@@ -92,9 +95,12 @@ code{background:#f0eef4;padding:1px 5px;border-radius:4px;font-size:13px}
 </ul>
 <h3>2. Yüz fotoğrafı OpenAI'a GÖNDERİLMEZ</h3>
 <p>Yüz görüntünüz, AI anlatı üretimi için <strong>sistemlerimizden hiçbir zaman çıkmaz.</strong> AI anlatısını <strong>açıkça onayladığınızda</strong>, AI sağlayıcımıza (OpenAI) <strong>yalnızca türetilmiş sayısal skorlar ve bir cilt-profili etiketi — metin olarak, görüntü olmadan</strong> gönderilir. Onaylamazsanız anlatı, üçüncü taraf AI olmadan kendi sunucularımızda üretilir. Bu onayı <strong>Profil → Gizlilik ve AI</strong> bölümünden istediğiniz an geri çekebilirsiniz. Ayrıntı için AI Veri İşleme sayfasına bakın.</p>
+<h3>2a. Ürün fotoğrafları (ürün tarayıcı)</h3>
+<p>Tarayıcı bir ürünü barkoduyla bulamadığında <strong>ürünün</strong> (içerik listesinin ya da ön etiketinin) fotoğrafını çeker ve bu fotoğrafı AI sağlayıcımıza (OpenAI) <strong>yalnızca üzerindeki yazıyı okumak için</strong> gönderir: içerik listesi, ürün adı ve marka. Değerlendirmenin kendisi bu metinden ve cilt profilinizden kendi sunucularımızda hesaplanır, AI tarafından değil. Fotoğraf <strong>bizde saklanmaz</strong>: o tek istek için işlenir ve atılır. Kamerayı insanlara değil ürüne doğrultun; fotoğraf çekildiğinde ekran bunu gösterir. Barkod kontrolleri Open Beauty Facts ürün veritabanına yalnızca barkod numarasını gönderir — sizinle ilgili hiçbir şey göndermez.</p>
 <h3>3. Verinizi kimler işler (alt işleyiciler)</h3>
 <ul>
-<li><strong>OpenAI</strong> — türetilmiş sayısal skorlar (yalnızca metin, görüntü yok), AI anlatısı, onaya bağlı; reklam için kullanılmaz; varsayılan olarak model eğitiminde kullanılmaz.</li>
+<li><strong>OpenAI</strong> — (a) ürün fotoğrafları, basılı içerik listesini, adı ve markayı okumak için (bizde saklanmaz); (b) onaya bağlı AI anlatısı için türetilmiş sayısal cilt skorları (yalnızca metin, yüz görüntüsü yok). Reklam için kullanılmaz; varsayılan olarak model eğitiminde kullanılmaz.</li>
+<li><strong>Open Beauty Facts</strong> — barkod sorguları (yalnızca barkod numarası).</li>
 <li><strong>RevenueCat / Apple</strong> — abonelik ve faturalandırma.</li>
 <li><strong>Sentry</strong> — çökme ve teşhis.</li>
 <li><strong>Expo Push / Apple Push (APNs)</strong> — bildirim iletimi.</li>

@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>SkinwellAI — AI Data Processing / AI Veri İşleme</title>
-<meta name="description" content="SkinwellAI AI Data Processing (AI Veri İşleme). Cosmetic wellness app — not a medical device."/>
+<meta name="description" content="SkinwellAI AI Data Processing (AI Veri İşleme). Cosmetic information app — not a medical device."/>
 <link rel="canonical" href="https://skinwellai.com/ai-data"/>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
 <meta property="og:title" content="SkinwellAI — AI Data Processing"/>
@@ -31,27 +31,37 @@ code{background:#f0eef4;padding:1px 5px;border-radius:4px;font-size:13px}
 <div class="toggle"><button id="b-en" class="active" onclick="setLang('en')">English</button>
 <button id="b-tr" onclick="setLang('tr')">Türkçe</button></div>
 <section id="en"><h2>English</h2>
-<p>SkinwellAI can generate an optional written <strong>AI narrative</strong> to explain your skin scores in plain language. This page explains exactly what is — and is not — sent to a third-party AI provider.</p>
-<p><strong>Your face photo is never sent to a third-party AI.</strong> All image analysis (MediaPipe/OpenCV) happens on our own backend. For the AI narrative we send our AI provider (<strong>OpenAI</strong>) <strong>only</strong>:</p>
+<p>This page explains exactly what is — and is not — sent to our third-party AI provider (<strong>OpenAI</strong>). There are two separate uses.</p>
+<h3>1. Reading product labels</h3>
+<p>When the scanner takes a photo of a product, that <strong>photo is sent to OpenAI only to read the printed text</strong>: the ingredient list, the product name, the brand and the kind of product. The screen tells you before the first photo, and shows when a photo is taken. We don't store the photo: it is processed for that one request and discarded. Please point the camera at the product, not at people.</p>
+<p><strong>The AI does not judge products.</strong> Scores and verdicts are calculated on our own servers, by fixed rules, from the ingredient text and your skin profile. Searching by name or pasting an ingredient list sends nothing to OpenAI.</p>
+<h3>2. Optional AI explanations</h3>
+<p>SkinwellAI can write an optional plain-language explanation of the estimates from a photo skin profile. <strong>Your face photo is never sent to a third-party AI</strong>: image analysis (MediaPipe/OpenCV) happens on our own backend. For this explanation we send OpenAI <strong>only</strong>:</p>
 <ul>
 <li>your <strong>derived numeric scores</strong> (e.g. hydration appearance, redness estimate), and</li>
 <li>a short <strong>skin-profile label</strong> (e.g. "balanced"), <strong>as text — no image, no name, no contact info.</strong></li>
 </ul>
-<p><strong>Consent is required and reversible.</strong> The AI narrative runs <strong>only after you explicitly opt in</strong>. If you decline, we generate the narrative <strong>on our own servers</strong> with no third-party AI, and your report still completes. You can grant or withdraw consent any time in <strong>Profile → Privacy &amp; AI</strong>; if our policy version changes, we ask again.</p>
-<p><strong>Provider terms.</strong> OpenAI processes the text to return narrative content. Per OpenAI's API terms, inputs are <strong>not used to train their models by default</strong>, and we do not use this data for advertising.</p>
-<p><strong>Safety.</strong> Generated text is filtered for non-diagnostic, non-shaming wording and validated against your real scores; if it cannot be validated, we fall back to a deterministic, on-server narrative.</p>
+<p><strong>Consent is required and reversible.</strong> These explanations run <strong>only after you explicitly opt in</strong>. If you decline, the text is generated <strong>on our own servers</strong> with no third-party AI. You can grant or withdraw consent any time in <strong>Profile → Privacy &amp; data</strong>; if our policy version changes, we ask again.</p>
+<p><strong>Safety.</strong> Generated text is filtered for non-diagnostic, non-shaming wording and validated against your real scores; if it cannot be validated, we fall back to a deterministic, on-server text.</p>
+<h3>Provider terms</h3>
+<p>Per OpenAI's API terms, inputs are <strong>not used to train their models by default</strong>, and we do not use this data for advertising.</p>
 <hr/></section>
 <section id="tr" class="hidden"><h2>Türkçe</h2>
-<p>SkinwellAI, cilt skorlarınızı sade bir dille açıklayan isteğe bağlı bir yazılı <strong>AI anlatısı</strong> üretebilir. Bu sayfa, üçüncü taraf bir AI sağlayıcısına neyin gönderilip gönderilmediğini tam olarak açıklar.</p>
-<p><strong>Yüz fotoğrafınız üçüncü taraf bir AI'a asla gönderilmez.</strong> Tüm görüntü analizi (MediaPipe/OpenCV) kendi arka ucumuzda yapılır. AI anlatısı için AI sağlayıcımıza (<strong>OpenAI</strong>) <strong>yalnızca</strong> şunları gönderiyoruz:</p>
+<p>Bu sayfa, üçüncü taraf yapay zekâ sağlayıcımıza (<strong>OpenAI</strong>) neyin gönderilip gönderilmediğini tam olarak açıklar. Birbirinden ayrı iki kullanım vardır.</p>
+<h3>1. Ürün etiketlerini okuma</h3>
+<p>Tarayıcı bir ürünün fotoğrafını çektiğinde bu <strong>fotoğraf yalnızca üzerindeki yazıyı okumak için OpenAI'a gönderilir</strong>: içerik listesi, ürün adı, marka ve ürün türü. Ekran bunu ilk fotoğraftan önce söyler ve fotoğraf çekildiğini gösterir. Fotoğrafı saklamayız: o tek istek için işlenir ve atılır. Lütfen kamerayı insanlara değil ürüne doğrultun.</p>
+<p><strong>Yapay zekâ ürünleri değerlendirmez.</strong> Skorlar ve kararlar, içerik metninden ve cilt profilinizden sabit kurallarla kendi sunucularımızda hesaplanır. Adıyla arama yapmak veya içerik listesi yapıştırmak OpenAI'a hiçbir şey göndermez.</p>
+<h3>2. İsteğe bağlı yapay zekâ açıklamaları</h3>
+<p>SkinwellAI, fotoğrafla cilt profilindeki tahminleri sade bir dille açıklayan isteğe bağlı bir metin yazabilir. <strong>Yüz fotoğrafınız üçüncü taraf bir yapay zekâya asla gönderilmez</strong>: görüntü analizi (MediaPipe/OpenCV) kendi arka ucumuzda yapılır. Bu açıklama için OpenAI'a <strong>yalnızca</strong> şunları göndeririz:</p>
 <ul>
 <li><strong>türetilmiş sayısal skorlarınız</strong> (örn. nem görünümü, kızarıklık tahmini) ve</li>
 <li>kısa bir <strong>cilt-profili etiketi</strong> (örn. "dengeli"), <strong>metin olarak — görüntü yok, isim yok, iletişim bilgisi yok.</strong></li>
 </ul>
-<p><strong>Onay gereklidir ve geri alınabilir.</strong> AI anlatısı <strong>yalnızca açıkça onayladıktan sonra</strong> çalışır. Reddederseniz anlatıyı üçüncü taraf AI olmadan <strong>kendi sunucularımızda</strong> üretiriz ve raporunuz yine tamamlanır. Onayı <strong>Profil → Gizlilik ve AI</strong>'dan istediğiniz an verebilir veya geri çekebilirsiniz; politika sürümümüz değişirse yeniden sorarız.</p>
-<p><strong>Sağlayıcı şartları.</strong> OpenAI, anlatı içeriği döndürmek için metni işler. OpenAI API şartlarına göre girdiler <strong>varsayılan olarak modellerini eğitmek için kullanılmaz</strong> ve bu veriyi reklam için kullanmayız.</p>
-<p><strong>Güvenlik.</strong> Üretilen metin, teşhissiz ve incitici olmayan ifade için filtrelenir ve gerçek skorlarınıza göre doğrulanır; doğrulanamazsa sunucu tarafında deterministik bir anlatıya geçeriz.</p></section>
-<footer>SkinwellAI · cosmetic wellness, not a medical device.</footer>
+<p><strong>Onay gereklidir ve geri alınabilir.</strong> Bu açıklamalar <strong>yalnızca açıkça onayladıktan sonra</strong> çalışır. Reddederseniz metin, üçüncü taraf yapay zekâ olmadan <strong>kendi sunucularımızda</strong> üretilir. Onayı <strong>Profil → Gizlilik ve veriler</strong>'den istediğiniz an verebilir veya geri çekebilirsiniz; politika sürümümüz değişirse yeniden sorarız.</p>
+<p><strong>Güvenlik.</strong> Üretilen metin, teşhissiz ve incitici olmayan ifade için filtrelenir ve gerçek skorlarınıza göre doğrulanır; doğrulanamazsa sunucu tarafında deterministik bir metne geçeriz.</p>
+<h3>Sağlayıcı şartları</h3>
+<p>OpenAI API şartlarına göre girdiler <strong>varsayılan olarak modellerini eğitmek için kullanılmaz</strong> ve bu veriyi reklam için kullanmayız.</p></section>
+<footer>SkinwellAI · cosmetic information, not a medical device.</footer>
 </div>
 <script>function setLang(l){document.getElementById('en').classList.toggle('hidden',l!=='en');
 document.getElementById('tr').classList.toggle('hidden',l!=='tr');

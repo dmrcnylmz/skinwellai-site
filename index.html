@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>SkinwellAI — Visual skin & face analysis, by camera</title>
-<meta name="description" content="Scan your skin in seconds. SkinwellAI turns a selfie into clear, visual estimates of hydration, texture, redness and more — plus a calm, personalized routine. Private by design. A cosmetic wellness app, not a medical device." />
+<title>SkinwellAI — Know what's in your skincare before you buy</title>
+<meta name="description" content="Point your camera at a cosmetic product. SkinwellAI reads the label and shows a formula score, how well it suits your skin, and every ingredient explained. A cosmetic information app, not a medical device." />
 <link rel="canonical" href="https://skinwellai.com/" />
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 <meta name="theme-color" content="#F4ECE2" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="SkinwellAI — Visual skin & face analysis, by camera" />
-<meta property="og:description" content="Scan your skin in seconds. Clear visual estimates, a calm routine, and progress over time. Private by design." />
+<meta property="og:title" content="SkinwellAI — Know what's in your skincare before you buy" />
+<meta property="og:description" content="Hold a product up to your camera: a formula score, your skin match and every ingredient explained. Scores are never for sale." />
 <meta property="og:url" content="https://skinwellai.com/" />
 <meta property="og:image" content="https://skinwellai.com/og.svg" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -56,6 +56,8 @@
   .btn:active{transform:scale(.98)}
   .btn-primary{background:var(--terra);color:#FFFCF7;box-shadow:0 10px 26px rgba(190,116,73,.30)}
   .btn-primary:hover{background:var(--terra-d)}
+  .nav .links a.btn-primary{color:#FFFCF7;white-space:nowrap}
+  @media(max-width:640px){.nav .links a.btn-primary{padding:9px 15px;font-size:13.5px}}
   .btn-ghost{background:var(--card);border-color:var(--line2);color:var(--fg)}
   .btn-ghost:hover{border-color:var(--terra)}
   .langbtn{font-size:13px;color:var(--dim);background:none;border:1px solid var(--line2);border-radius:999px;padding:7px 13px;cursor:pointer;font-weight:500}
@@ -163,6 +165,15 @@
     .privacy .wrap2{grid-template-columns:1fr}.plans{grid-template-columns:1fr}
     h1{font-size:46px}.sec-h h2{font-size:32px}.privacy h2{font-size:30px}.final h2{font-size:32px}
   }
+  /* product result demo */
+  .demo-rows{padding:6px 18px 14px;display:grid;gap:0}
+  .demo-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-top:1px solid var(--line);font-size:13px}
+  .demo-row b{font-weight:600}
+  .chip{font-size:11px;font-weight:600;padding:3px 9px;border-radius:999px;white-space:nowrap}
+  .chip.bad{color:var(--rose);background:rgba(197,106,82,.12)}
+  .chip.mid{color:var(--amber);background:rgba(184,134,46,.13)}
+  .chip.good{color:#2C7D5B;background:rgba(44,125,91,.12)}
+  .verdict{display:inline-block;margin-top:6px}
   [data-lang="tr"] .en,[data-lang="en"] .tr{display:none}
 </style>
 </head>
@@ -171,12 +182,12 @@
   <div class="wrap nav">
     <a class="brand" href="/"><span class="dot">S</span> SkinwellAI</a>
     <nav class="links">
-      <a class="hide-m" href="#how">How it works</a>
-      <a class="hide-m" href="#features">Features</a>
-      <a class="hide-m" href="#privacy">Privacy</a>
-      <a class="hide-m" href="#pricing">Pricing</a>
+      <a class="hide-m" href="#how"><span class="en">How it works</span><span class="tr">Nasıl çalışır</span></a>
+      <a class="hide-m" href="#features"><span class="en">Features</span><span class="tr">Özellikler</span></a>
+      <a class="hide-m" href="#privacy"><span class="en">Privacy</span><span class="tr">Gizlilik</span></a>
+      <a class="hide-m" href="#pricing"><span class="en">Pricing</span><span class="tr">Fiyatlar</span></a>
       <button class="langbtn" id="lang" onclick="toggleLang()">Türkçe</button>
-      <a class="btn btn-primary" href="#pricing"><span class="en">Get the app</span><span class="tr">Uygulamayı al</span></a>
+      <a class="btn btn-primary" href="/get"><span class="en">Get the app</span><span class="tr">Uygulamayı al</span></a>
     </nav>
   </div>
 </header>
@@ -185,44 +196,43 @@
 <div class="wrap">
   <section class="hero">
     <div>
-      <span class="eyebrow">✦ <span class="en">Skin intelligence</span><span class="tr">Cilt zekâsı</span></span>
-      <h1><span class="en">Your skin,<br><span class="accent">understood.</span></span><span class="tr">Cildini,<br><span class="accent">anla.</span></span></h1>
+      <span class="eyebrow">✦ <span class="en">Cosmetic product scanner</span><span class="tr">Kozmetik ürün tarayıcı</span></span>
+      <h1><span class="en">Know what's inside,<br><span class="accent">before you buy.</span></span><span class="tr">İçinde ne var,<br><span class="accent">almadan önce bil.</span></span></h1>
       <p class="lead">
-        <span class="en">Turn a selfie into clear, visual estimates of hydration, texture, redness and more — in seconds, on your phone. Plus a calm, personalized routine.</span>
-        <span class="tr">Bir selfie'yi saniyeler içinde net görsel nem, doku ve kızarıklık tahminlerine dönüştür — telefonunda. Üstüne sakin, kişiye özel bir rutin.</span>
+        <span class="en">Hold a skincare product up to your camera. In seconds: a formula score, how well it suits your skin, and every ingredient explained.</span>
+        <span class="tr">Cilt bakım ürününü kameraya tut. Saniyeler içinde: formül skoru, cildine ne kadar uyduğu ve her bileşenin açıklaması.</span>
       </p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="#pricing"><span class="en">See plans</span><span class="tr">Planları gör</span></a>
+        <a class="btn btn-primary" href="/get"><span class="en">Get it on the App Store</span><span class="tr">App Store'dan al</span></a>
         <a class="btn btn-ghost" href="#how"><span class="en">How it works →</span><span class="tr">Nasıl çalışır →</span></a>
       </div>
       <div class="trust">
-        <span><b>🔒 <span class="en">Private by design</span><span class="tr">Tasarımı gereği gizli</span></b></span>
-        <span><b>⚡ <span class="en">~60-second scan</span><span class="tr">~60 saniyelik tarama</span></b></span>
+        <span><b>⚖️ <span class="en">Scores are never for sale</span><span class="tr">Skorlar satılmaz</span></b></span>
+        <span><b>📚 <span class="en">Sources you can check</span><span class="tr">Kontrol edebileceğin kaynaklar</span></b></span>
         <span><b>🩺 <span class="en">Not a diagnosis</span><span class="tr">Teşhis değildir</span></b></span>
       </div>
     </div>
-    <!-- phone mockup (illustrative; demo data) -->
+    <!-- phone mockup (illustrative; fictional product) -->
     <div class="phone" aria-hidden="true">
       <div class="screen">
         <div class="top">
-          <div class="k">SKIN REPORT · DEMO</div>
+          <div class="k"><span class="en">EXAMPLE PRODUCT</span><span class="tr">ÖRNEK ÜRÜN</span></div>
           <div class="score">
-            <div class="ring"><i>76</i></div>
+            <div class="ring" style="background:conic-gradient(var(--rose) 0 28%,rgba(120,80,50,.12) 28% 100%)"><i>28</i></div>
             <div>
-              <h3 class="en">Skin health</h3><h3 class="tr">Cilt sağlığı</h3>
-              <p class="sub en">Visual estimate · current photo conditions</p>
-              <p class="sub tr">Görsel tahmin · mevcut koşullarda</p>
+              <h3 class="en">“100% Natural” Rose Lotion</h3><h3 class="tr">“%100 Doğal” Gül Losyonu</h3>
+              <span class="chip bad verdict"><span class="en">Not for you</span><span class="tr">Sana uygun değil</span></span>
             </div>
           </div>
         </div>
-        <div class="bars">
-          <div class="bar"><div class="lbl"><span class="en">Hydration</span><span class="tr">Nem</span><span>79</span></div><div class="track"><div class="fill" style="width:79%;background:var(--cyan)"></div></div></div>
-          <div class="bar"><div class="lbl"><span class="en">Barrier</span><span class="tr">Bariyer</span><span>76</span></div><div class="track"><div class="fill" style="width:76%;background:var(--terra)"></div></div></div>
-          <div class="bar"><div class="lbl"><span class="en">Texture</span><span class="tr">Doku</span><span>58</span></div><div class="track"><div class="fill" style="width:58%;background:var(--amber)"></div></div></div>
-          <div class="bar"><div class="lbl"><span class="en">Redness</span><span class="tr">Kızarıklık</span><span>52</span></div><div class="track"><div class="fill" style="width:52%;background:var(--rose)"></div></div></div>
+        <div class="demo-rows">
+          <div class="demo-row"><b>Parfum</b><span class="chip bad"><span class="en">Avoid</span><span class="tr">Kaçın</span></span></div>
+          <div class="demo-row"><b>Alcohol Denat.</b><span class="chip bad"><span class="en">Drying</span><span class="tr">Kurutucu</span></span></div>
+          <div class="demo-row"><b>Limonene</b><span class="chip mid"><span class="en">Allergen</span><span class="tr">Alerjen</span></span></div>
+          <div class="demo-row"><b>Glycerin</b><span class="chip good"><span class="en">Helpful</span><span class="tr">Faydalı</span></span></div>
         </div>
-        <div class="disc en">Illustrative demo. Estimates vary with lighting & camera. Not a medical device.</div>
-        <div class="disc tr">Örnek demo. Tahminler ışığa ve kameraya göre değişir. Tıbbi cihaz değildir.</div>
+        <div class="disc en">Illustrative example with a fictional product, read against a dry, sensitive skin profile.</div>
+        <div class="disc tr">Kurgusal bir ürünle, kuru ve hassas cilt profiline göre hazırlanmış örnek.</div>
       </div>
     </div>
   </section>
@@ -232,13 +242,13 @@
 <div class="wrap"><section id="how">
   <div class="sec-h">
     <span class="kicker"><span class="en">How it works</span><span class="tr">Nasıl çalışır</span></span>
-    <h2><span class="en">Three taps to insight</span><span class="tr">Üç dokunuşta içgörü</span></h2>
-    <p><span class="en">No clinic, no guesswork — just your camera and a calm, guided flow.</span><span class="tr">Klinik yok, tahmin yok — sadece kameran ve sakin, yönlendirilmiş bir akış.</span></p>
+    <h2><span class="en">Hold it up. That's it.</span><span class="tr">Kameraya tut. Hepsi bu.</span></h2>
+    <p><span class="en">Welly, your axolotl guide, walks you through it. The scoring itself is done by fixed rules, not by guesswork.</span><span class="tr">Aksolotl rehberin Welly sana eşlik eder. Puanlamayı tahmin değil, sabit kurallar yapar.</span></p>
   </div>
   <div class="steps">
-    <div class="step"><div class="n">1</div><h3 class="en">Scan</h3><h3 class="tr">Tara</h3><p class="en">A smart camera guide coaches your lighting and framing, then captures a selfie.</p><p class="tr">Akıllı kamera rehberi ışığını ve çerçeveni ayarlar, sonra bir selfie çeker.</p></div>
-    <div class="step"><div class="n">2</div><h3 class="en">Analyze</h3><h3 class="tr">Analiz et</h3><p class="en">On-device-quality checks plus computer vision produce visual appearance estimates.</p><p class="tr">Kalite kontrolleri ve bilgisayarlı görü, görsel görünüm tahminleri üretir.</p></div>
-    <div class="step"><div class="n">3</div><h3 class="en">Improve</h3><h3 class="tr">Geliştir</h3><p class="en">Get a clear report, a tailored cosmetic routine, and progress you can track over time.</p><p class="tr">Net bir rapor, kişiye özel bir rutin ve zamanla izleyebileceğin ilerleme.</p></div>
+    <div class="step"><div class="n">1</div><h3 class="en">Show the product</h3><h3 class="tr">Ürünü göster</h3><p class="en">Front or ingredient list: hold it up and the camera does the rest. You can also search by name or paste a list.</p><p class="tr">Ön yüzü ya da içerik listesi: kameraya tut, gerisini kamera halleder. Adıyla da arayabilir ya da listeyi yapıştırabilirsin.</p></div>
+    <div class="step"><div class="n">2</div><h3 class="en">Read the result</h3><h3 class="tr">Sonucu oku</h3><p class="en">A formula score that's the same for everyone, and a skin match worked out for your skin type, goals and the ingredients you avoid.</p><p class="tr">Herkes için aynı olan formül skoru ve cilt tipine, hedeflerine ve kaçındığın bileşenlere göre hesaplanan cilt uyumu.</p></div>
+    <div class="step"><div class="n">3</div><h3 class="en">Build your shelf</h3><h3 class="tr">Rafını kur</h3><p class="en">Add what you use, spot products that clash, and get a simple morning + evening routine in the right order.</p><p class="tr">Kullandıklarını ekle, çakışan ürünleri gör ve doğru sırayla sade bir sabah + akşam rutini al.</p></div>
   </div>
 </section></div>
 
@@ -246,15 +256,15 @@
 <div class="wrap"><section id="features">
   <div class="sec-h">
     <span class="kicker"><span class="en">Features</span><span class="tr">Özellikler</span></span>
-    <h2><span class="en">Everything in one calm app</span><span class="tr">Hepsi tek bir sakin uygulamada</span></h2>
+    <h2><span class="en">Every label, finally readable</span><span class="tr">Her etiket, sonunda okunabilir</span></h2>
   </div>
   <div class="grid">
-    <div class="feat"><div class="ic">🔬</div><h3 class="en">Skin scan</h3><h3 class="tr">Cilt taraması</h3><p class="en">Hydration, surface shine, texture, visible pores, redness and under-eye tone — each a visual estimate.</p><p class="tr">Nem, parlaklık, doku, gözenekler, kızarıklık ve göz altı tonu — her biri bir görsel tahmin.</p></div>
-    <div class="feat"><div class="ic">🗺️</div><h3 class="en">Facial map</h3><h3 class="tr">Yüz haritası</h3><p class="en">See which areas the estimate highlights, zone by zone.</p><p class="tr">Tahminin vurguladığı bölgeleri, bölge bölge gör.</p></div>
-    <div class="feat"><div class="ic">✦</div><h3 class="en">Aesthetic view</h3><h3 class="tr">Estetik bakış</h3><p class="en">Photo-based proportion estimates — a fun, non-judgemental view, never a verdict on worth.</p><p class="tr">Fotoğrafa dayalı oran tahminleri — eğlenceli, yargılamayan bir bakış; asla değer yargısı değil.</p></div>
-    <div class="feat"><div class="ic">🧴</div><h3 class="en">Tailored routine</h3><h3 class="tr">Kişiye özel rutin</h3><p class="en">A calm, cosmetic AM/PM routine built around your profile.</p><p class="tr">Profiline göre sakin, kozmetik bir sabah/akşam rutini.</p></div>
-    <div class="feat"><div class="ic">📈</div><h3 class="en">Progress</h3><h3 class="tr">İlerleme</h3><p class="en">Track how estimates change over time under similar conditions.</p><p class="tr">Tahminlerin benzer koşullarda zamanla nasıl değiştiğini izle.</p></div>
-    <div class="feat"><div class="ic">🤖</div><h3 class="en">Optional AI summary</h3><h3 class="tr">İsteğe bağlı AI özeti</h3><p class="en">An opt-in narrative that explains your scores in plain language — your photo is never sent.</p><p class="tr">Skorlarını sade bir dille açıklayan, onaya bağlı bir özet — fotoğrafın asla gönderilmez.</p></div>
+    <div class="feat"><div class="ic">📷</div><h3 class="en">Product scanner</h3><h3 class="tr">Ürün tarayıcı</h3><p class="en">Point the camera at a cosmetic product and it reads the label for you. No label in view? Search or paste the list.</p><p class="tr">Kamerayı kozmetik bir ürüne tut, etiketi senin için okusun. Etiket görünmüyor mu? Ara ya da listeyi yapıştır.</p></div>
+    <div class="feat"><div class="ic">⚖️</div><h3 class="en">Formula score</h3><h3 class="tr">Formül skoru</h3><p class="en">Irritants, fragrance, drying alcohol and allergens, weighed by evidence. The same for everyone.</p><p class="tr">Tahriş ediciler, parfüm, kurutucu alkol ve alerjenler kanıta göre tartılır. Herkes için aynıdır.</p></div>
+    <div class="feat"><div class="ic">🎯</div><h3 class="en">Skin match</h3><h3 class="tr">Cilt uyumu</h3><p class="en">The same product doesn't suit everyone: see how it fits your skin type, goals and avoid list.</p><p class="tr">Aynı ürün herkese uymaz: cilt tipine, hedeflerine ve kaçınma listene nasıl uyduğunu gör.</p></div>
+    <div class="feat"><div class="ic">🔎</div><h3 class="en">Every ingredient explained</h3><h3 class="tr">Her bileşenin açıklaması</h3><p class="en">In plain language, riskiest first, with what it does and the sources behind it. Better options from a verified catalog when something doesn't suit you.</p><p class="tr">Sade bir dille, en riskliden başlayarak: ne işe yaradığı ve dayandığı kaynaklar. Sana uymadığında doğrulanmış katalogdan daha iyi seçenekler.</p></div>
+    <div class="feat"><div class="ic">🧴</div><h3 class="en">Your shelf</h3><h3 class="tr">Rafın</h3><p class="en">Track what you use and want to try, with alerts for products that shouldn't share an evening and a plan that alternates them.</p><p class="tr">Kullandıklarını ve denemek istediklerini takip et; aynı akşam kullanılmaması gereken ürünler için uyarı ve onları dönüşümlü kullanan bir plan al.</p></div>
+    <div class="feat"><div class="ic">🌗</div><h3 class="en">Simple routine</h3><h3 class="tr">Sade rutin</h3><p class="en">A morning + evening routine built from your own shelf, in the right order. It updates when your shelf changes.</p><p class="tr">Kendi rafından, doğru sırayla bir sabah + akşam rutini. Rafın değişince kendini günceller.</p></div>
   </div>
 </section></div>
 
@@ -263,15 +273,15 @@
   <div class="privacy"><div class="wrap2">
     <div>
       <span class="kicker"><span class="en">Privacy &amp; trust</span><span class="tr">Gizlilik &amp; güven</span></span>
-      <h2><span class="en">Your face stays yours.</span><span class="tr">Yüzün sana ait kalır.</span></h2>
-      <p class="en">SkinwellAI is built privacy-first. Your face photo is processed to produce your analysis and is never sold or used to track you.</p>
-      <p class="tr">SkinwellAI gizlilik öncelikli kuruldu. Yüz fotoğrafın analizini üretmek için işlenir; satılmaz ve seni izlemek için kullanılmaz.</p>
+      <h2><span class="en">Scan the product, not you.</span><span class="tr">Sen değil, ürün taranır.</span></h2>
+      <p class="en">SkinwellAI works from product labels and the skin profile you give it. No selfie needed.</p>
+      <p class="tr">SkinwellAI ürün etiketleri ve senin verdiğin cilt profiliyle çalışır. Selfie gerekmez.</p>
     </div>
     <ul>
-      <li><span class="c">✓</span> <span class="en">Your face photo is <b>never</b> sent to any third-party AI.</span><span class="tr">Yüz fotoğrafın <b>asla</b> üçüncü taraf bir AI'a gönderilmez.</span></li>
-      <li><span class="c">✓</span> <span class="en">The optional AI summary sends only derived numeric scores — and only if you opt in.</span><span class="tr">İsteğe bağlı AI özeti yalnızca türetilmiş sayısal skorları gönderir — yalnızca onaylarsan.</span></li>
-      <li><span class="c">✓</span> <span class="en">No advertising, no third-party tracking, no model training without consent.</span><span class="tr">Reklam yok, üçüncü taraf izleme yok, onaysız model eğitimi yok.</span></li>
-      <li><span class="c">✓</span> <span class="en">Delete your account and data anytime, right inside the app.</span><span class="tr">Hesabını ve verilerini istediğin zaman uygulama içinden sil.</span></li>
+      <li><span class="c">✓</span> <span class="en">Product photos go to our AI provider (OpenAI) only to read the printed text, and we don't store them.</span><span class="tr">Ürün fotoğrafları yalnızca üzerindeki yazıyı okumak için yapay zekâ sağlayıcımıza (OpenAI) gönderilir ve saklanmaz.</span></li>
+      <li><span class="c">✓</span> <span class="en">Scores are worked out by fixed rules on our servers, not by AI. No brand can pay to change them.</span><span class="tr">Skorlar yapay zekâyla değil, sunucularımızda sabit kurallarla hesaplanır. Hiçbir marka bunları değiştirmek için ödeme yapamaz.</span></li>
+      <li><span class="c">✓</span> <span class="en">The photo skin profile is optional. A face photo is never sent to a third-party AI and is kept for at most 30 days.</span><span class="tr">Fotoğrafla cilt profili isteğe bağlıdır. Yüz fotoğrafı üçüncü taraf bir yapay zekâya asla gönderilmez ve en fazla 30 gün saklanır.</span></li>
+      <li><span class="c">✓</span> <span class="en">Export or delete your data anytime, right inside the app.</span><span class="tr">Verilerini istediğin zaman uygulama içinden dışa aktar veya sil.</span></li>
     </ul>
   </div></div>
 </section>
@@ -280,8 +290,8 @@
 <div class="wrap"><section id="pricing">
   <div class="sec-h">
     <span class="kicker"><span class="en">Pricing</span><span class="tr">Fiyatlandırma</span></span>
-    <h2><span class="en">Simple, honest pricing</span><span class="tr">Basit, dürüst fiyatlandırma</span></h2>
-    <p><span class="en">Core scanning and your report are free. Premium unlocks the full experience.</span><span class="tr">Temel tarama ve raporun ücretsiz. Premium tüm deneyimi açar.</span></p>
+    <h2><span class="en">One subscription, everything in it</span><span class="tr">Tek abonelik, her şey içinde</span></h2>
+    <p><span class="en">SkinWell Pro is required to use the app. There's no free tier.</span><span class="tr">Uygulamayı kullanmak için SkinWell Pro gerekir. Ücretsiz sürüm yoktur.</span></p>
   </div>
   <div class="plans">
     <div class="plan">
@@ -289,9 +299,9 @@
       <div class="price">$4.99 <small>/ <span class="en">mo</span><span class="tr">ay</span></small></div>
       <p class="per en">Billed monthly · cancel anytime</p><p class="per tr">Aylık faturalanır · istediğin zaman iptal</p>
       <ul>
-        <li><span class="c">✓</span> <span class="en">Unlimited scans</span><span class="tr">Sınırsız tarama</span></li>
-        <li><span class="c">✓</span> <span class="en">Deeper insights &amp; advanced report</span><span class="tr">Daha derin içgörüler &amp; gelişmiş rapor</span></li>
-        <li><span class="c">✓</span> <span class="en">Your skin timeline</span><span class="tr">Cilt zaman çizelgen</span></li>
+        <li><span class="c">✓</span> <span class="en">Product scanner and skin match</span><span class="tr">Ürün tarayıcı ve cilt uyumu</span></li>
+        <li><span class="c">✓</span> <span class="en">Every ingredient, with sources</span><span class="tr">Her bileşen, kaynaklarıyla</span></li>
+        <li><span class="c">✓</span> <span class="en">Shelf, clash alerts and routine</span><span class="tr">Raf, çakışma uyarıları ve rutin</span></li>
       </ul>
     </div>
     <div class="plan best">
@@ -316,31 +326,34 @@
     <h2><span class="en">Good questions</span><span class="tr">Güzel sorular</span></h2>
   </div>
   <div class="faq">
-    <details><summary><span class="en">Is SkinwellAI a medical or diagnostic tool?</span><span class="tr">SkinwellAI tıbbi ya da teşhis aracı mı?</span></summary>
-      <p class="en">No. SkinwellAI is a cosmetic wellness app. It produces visual appearance estimates under your current photo conditions — it is not a medical device and does not provide diagnosis or treatment. For any health concern, consult a qualified professional.</p>
-      <p class="tr">Hayır. SkinwellAI bir kozmetik wellness uygulamasıdır. Mevcut fotoğraf koşullarında görsel görünüm tahminleri üretir — tıbbi cihaz değildir, teşhis veya tedavi sağlamaz. Sağlık endişelerinde yetkili bir uzmana danışın.</p></details>
-    <details><summary><span class="en">Where does my face photo go?</span><span class="tr">Yüz fotoğrafım nereye gidiyor?</span></summary>
-      <p class="en">It is processed to compute your analysis and is never sold or used to track you. It is never sent to any third-party AI. The optional AI summary sends only derived numeric scores, and only if you opt in. See our Privacy Policy and AI Data Processing pages.</p>
-      <p class="tr">Analizini hesaplamak için işlenir; satılmaz ve seni izlemek için kullanılmaz. Asla üçüncü taraf bir AI'a gönderilmez. İsteğe bağlı AI özeti yalnızca türetilmiş sayısal skorları, yalnızca onaylarsan gönderir. Gizlilik ve AI Veri İşleme sayfalarına bakın.</p></details>
-    <details><summary><span class="en">How accurate is it?</span><span class="tr">Ne kadar doğru?</span></summary>
-      <p class="en">Every metric is an image-derived visual estimate, not a clinical measurement. Results vary with lighting, camera and framing — that's why the app shows a confidence level and suggests a retake when a photo is low quality.</p>
-      <p class="tr">Her metrik, klinik bir ölçüm değil, görüntüden türetilmiş görsel bir tahmindir. Sonuçlar ışık, kamera ve çerçeveye göre değişir — bu yüzden uygulama bir güven seviyesi gösterir ve düşük kaliteli fotoğraflarda yeniden çekim önerir.</p></details>
+    <details><summary><span class="en">Is this medical advice?</span><span class="tr">Bu tıbbi tavsiye mi?</span></summary>
+      <p class="en">No. SkinwellAI is a cosmetic information app. It judges ingredient lists by rules and informs; it isn't a medical device and doesn't diagnose or treat. For lasting or severe symptoms, see a dermatologist.</p>
+      <p class="tr">Hayır. SkinwellAI bir kozmetik bilgi uygulamasıdır. İçerik listelerini kurallarla değerlendirir ve bilgi verir; tıbbi cihaz değildir, teşhis veya tedavi sağlamaz. Kalıcı ya da şiddetli belirtilerde bir dermatoloğa danış.</p></details>
+    <details><summary><span class="en">Where do my photos go?</span><span class="tr">Fotoğraflarım nereye gidiyor?</span></summary>
+      <p class="en">A product photo goes to our AI provider (OpenAI) only to read the printed text, and we don't store it. A face photo is used only if you choose the optional photo skin profile; it's never sent to a third-party AI and is kept for at most 30 days. See our Privacy Policy and AI Data Processing pages.</p>
+      <p class="tr">Ürün fotoğrafı yalnızca üzerindeki yazıyı okumak için yapay zekâ sağlayıcımıza (OpenAI) gönderilir ve saklanmaz. Yüz fotoğrafı yalnızca isteğe bağlı fotoğrafla cilt profilini seçersen kullanılır; üçüncü taraf bir yapay zekâya asla gönderilmez ve en fazla 30 gün saklanır. Gizlilik ve AI Veri İşleme sayfalarına bak.</p></details>
+    <details><summary><span class="en">How is a score calculated?</span><span class="tr">Skor nasıl hesaplanıyor?</span></summary>
+      <p class="en">By fixed rules based on published guidance, from the ingredient list: the same product and the same profile always give the same result. AI only reads the text on the label. Sources include AAD, NHS, WHO and CosIng.</p>
+      <p class="tr">İçerik listesinden, yayımlanmış rehberlere dayanan sabit kurallarla: aynı ürün ve aynı profil her zaman aynı sonucu verir. Yapay zekâ yalnızca etiketteki yazıyı okur. Kaynaklar arasında AAD, NHS, WHO ve CosIng vardır.</p></details>
+    <details><summary><span class="en">What if it doesn't recognise my product?</span><span class="tr">Ürünümü tanımazsa ne olur?</span></summary>
+      <p class="en">Turn it around so the ingredient list can be read, search by name, or paste the list from a website. Results depend on the ingredient text available, so check the packaging too, especially for allergies.</p>
+      <p class="tr">Ürünü çevirip içerik listesini okut, adıyla ara ya da listeyi bir siteden yapıştır. Sonuçlar mevcut içerik metnine dayanır; özellikle alerjilerin için ambalajı da kontrol et.</p></details>
     <details><summary><span class="en">Can I cancel my subscription?</span><span class="tr">Aboneliğimi iptal edebilir miyim?</span></summary>
-      <p class="en">Yes — anytime from Apple Settings → Subscriptions. Access continues until the end of the current period. Core scanning stays free.</p>
-      <p class="tr">Evet — istediğin zaman Apple Ayarlar → Abonelikler'den. Erişim mevcut dönem sonuna kadar sürer. Temel tarama ücretsiz kalır.</p></details>
+      <p class="en">Yes — anytime from Apple Settings → Subscriptions. Access continues until the end of the current period.</p>
+      <p class="tr">Evet — istediğin zaman Apple Ayarlar → Abonelikler'den. Erişim mevcut dönem sonuna kadar sürer.</p></details>
     <details><summary><span class="en">Can I delete my data?</span><span class="tr">Verilerimi silebilir miyim?</span></summary>
-      <p class="en">Yes. Profile → Delete Account erases your personal data and raw images. See our Account Deletion page.</p>
-      <p class="tr">Evet. Profil → Hesabı Sil, kişisel verilerini ve ham görüntülerini siler. Hesap Silme sayfasına bakın.</p></details>
+      <p class="en">Yes. Profile → Privacy &amp; data → Delete my account erases your personal data and any face photos. Deleting your account doesn't cancel an Apple subscription. See our Account Deletion page.</p>
+      <p class="tr">Evet. Profil → Gizlilik ve veriler → Hesabımı sil, kişisel verilerini ve varsa yüz fotoğraflarını siler. Hesabı silmek Apple aboneliğini iptal etmez. Hesap Silme sayfasına bak.</p></details>
   </div>
 </section></div>
 
 <!-- FINAL CTA -->
 <section>
   <div class="final">
-    <h2><span class="en">Understand your skin today.</span><span class="tr">Cildini bugün anla.</span></h2>
-    <p><span class="en">A calmer, clearer skincare routine starts with one scan.</span><span class="tr">Daha sakin, daha net bir cilt bakımı tek bir taramayla başlar.</span></p>
-    <a class="btn btn-primary" href="#pricing" style="padding:15px 30px"><span class="en">Coming soon to the App Store</span><span class="tr">App Store'da çok yakında</span></a>
-    <p style="color:var(--faint);font-size:13px;margin-top:16px"><span class="en">iOS · Currently in closed beta</span><span class="tr">iOS · Şu anda kapalı beta</span></p>
+    <h2><span class="en">Read the label before you buy.</span><span class="tr">Almadan önce etiketi oku.</span></h2>
+    <p><span class="en">Start with the next product you pick up.</span><span class="tr">Eline aldığın bir sonraki üründen başla.</span></p>
+    <a class="btn btn-primary" href="/get" style="padding:15px 30px"><span class="en">Get it on the App Store</span><span class="tr">App Store'dan al</span></a>
+    <p style="color:var(--faint);font-size:13px;margin-top:16px"><span class="en">For iPhone</span><span class="tr">iPhone için</span></p>
   </div>
 </section>
 
@@ -350,8 +363,8 @@
     <div class="col" style="max-width:290px">
       <a class="brand" href="/" style="margin-bottom:12px"><span class="dot">S</span> SkinwellAI</a>
       <p style="color:var(--dim);font-size:14px;margin:0;line-height:1.6">
-        <span class="en">Visual skin &amp; face analysis, by camera. Cosmetic wellness — not a medical device.</span>
-        <span class="tr">Kamerayla görsel cilt ve yüz analizi. Kozmetik wellness — tıbbi cihaz değildir.</span>
+        <span class="en">Know what's in your skincare before you buy it. Cosmetic information — not a medical device.</span>
+        <span class="tr">Cilt bakım ürününün içinde ne olduğunu almadan önce bil. Kozmetik bilgi — tıbbi cihaz değildir.</span>
       </p>
     </div>
     <div class="col">
@@ -378,8 +391,8 @@
   <div class="wrap legal-line">
     © <span id="yr">2026</span> Demircan Yılmaz (SkinwellAI) · şahıs işletmesi / sole proprietorship, Türkiye ·
     Cevizli Mah. Ulubey Sk. Nursanlar Plaza A Blok No: 4A, Kartal, İstanbul 34862, Türkiye ·
-    <span class="en">SkinwellAI is a cosmetic wellness product, not a medical device, and does not provide diagnosis or treatment.</span>
-    <span class="tr">SkinwellAI kozmetik bir wellness ürünüdür, tıbbi cihaz değildir ve teşhis veya tedavi sağlamaz.</span>
+    <span class="en">SkinwellAI is a cosmetic information product, not a medical device, and does not provide diagnosis or treatment.</span>
+    <span class="tr">SkinwellAI kozmetik bir bilgi ürünüdür, tıbbi cihaz değildir ve teşhis veya tedavi sağlamaz.</span>
   </div>
 </footer>
 

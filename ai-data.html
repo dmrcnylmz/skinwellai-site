@@ -31,10 +31,10 @@ code{background:#f0eef4;padding:1px 5px;border-radius:4px;font-size:13px}
 <div class="toggle"><button id="b-en" class="active" onclick="setLang('en')">English</button>
 <button id="b-tr" onclick="setLang('tr')">Türkçe</button></div>
 <section id="en"><h2>English</h2>
-<p>This page explains exactly what is — and is not — sent to our third-party AI provider (<strong>OpenAI</strong>). There are two separate uses.</p>
+<p>This page explains exactly what is — and is not — sent to our third-party AI providers. There are two separate uses, with two providers.</p>
 <h3>1. Reading product labels</h3>
-<p>When the scanner takes a photo of a product, that <strong>photo is sent to OpenAI only to read the printed text</strong>: the ingredient list, the product name, the brand and the kind of product. The screen tells you before the first photo, and shows when a photo is taken. We don't store the photo: it is processed for that one request and discarded. Please point the camera at the product, not at people.</p>
-<p><strong>The AI does not judge products.</strong> Scores and verdicts are calculated on our own servers, by fixed rules, from the ingredient text and your skin profile. Searching by name or pasting an ingredient list sends nothing to OpenAI.</p>
+<p>When you take a photo of a product, that <strong>photo is sent to Anthropic only to read the printed text</strong>: the ingredient list, the product name, the brand and the kind of product. The screen tells you before the first photo, and nothing is photographed until you tap the shutter. We don't store the photo: it is processed for that one request and discarded. Please point the camera at the product, not at people.</p>
+<p><strong>The AI does not judge products.</strong> Scores and verdicts are calculated on our own servers, by fixed rules, from the ingredient text and your skin profile. Searching by name or pasting an ingredient list sends nothing to Anthropic.</p>
 <h3>2. Optional AI explanations</h3>
 <p>SkinwellAI can write an optional plain-language explanation of the estimates from a photo skin profile. <strong>Your face photo is never sent to a third-party AI</strong>: image analysis (MediaPipe/OpenCV) happens on our own backend. For this explanation we send OpenAI <strong>only</strong>:</p>
 <ul>
@@ -44,13 +44,13 @@ code{background:#f0eef4;padding:1px 5px;border-radius:4px;font-size:13px}
 <p><strong>Consent is required and reversible.</strong> These explanations run <strong>only after you explicitly opt in</strong>. If you decline, the text is generated <strong>on our own servers</strong> with no third-party AI. You can grant or withdraw consent any time in <strong>Profile → Privacy &amp; data</strong>; if our policy version changes, we ask again.</p>
 <p><strong>Safety.</strong> Generated text is filtered for non-diagnostic, non-shaming wording and validated against your real scores; if it cannot be validated, we fall back to a deterministic, on-server text.</p>
 <h3>Provider terms</h3>
-<p>Per OpenAI's API terms, inputs are <strong>not used to train their models by default</strong>, and we do not use this data for advertising.</p>
+<p>Under Anthropic's and OpenAI's commercial API terms, inputs are <strong>not used to train their models by default</strong>, and we do not use this data for advertising.</p>
 <hr/></section>
 <section id="tr" class="hidden"><h2>Türkçe</h2>
-<p>Bu sayfa, üçüncü taraf yapay zekâ sağlayıcımıza (<strong>OpenAI</strong>) neyin gönderilip gönderilmediğini tam olarak açıklar. Birbirinden ayrı iki kullanım vardır.</p>
+<p>Bu sayfa, üçüncü taraf yapay zekâ sağlayıcılarımıza neyin gönderilip gönderilmediğini tam olarak açıklar. İki sağlayıcıyla, birbirinden ayrı iki kullanım vardır.</p>
 <h3>1. Ürün etiketlerini okuma</h3>
-<p>Tarayıcı bir ürünün fotoğrafını çektiğinde bu <strong>fotoğraf yalnızca üzerindeki yazıyı okumak için OpenAI'a gönderilir</strong>: içerik listesi, ürün adı, marka ve ürün türü. Ekran bunu ilk fotoğraftan önce söyler ve fotoğraf çekildiğini gösterir. Fotoğrafı saklamayız: o tek istek için işlenir ve atılır. Lütfen kamerayı insanlara değil ürüne doğrultun.</p>
-<p><strong>Yapay zekâ ürünleri değerlendirmez.</strong> Skorlar ve kararlar, içerik metninden ve cilt profilinizden sabit kurallarla kendi sunucularımızda hesaplanır. Adıyla arama yapmak veya içerik listesi yapıştırmak OpenAI'a hiçbir şey göndermez.</p>
+<p>Bir ürünün fotoğrafını çektiğinizde bu <strong>fotoğraf yalnızca üzerindeki yazıyı okumak için Anthropic'e gönderilir</strong>: içerik listesi, ürün adı, marka ve ürün türü. Ekran bunu ilk fotoğraftan önce söyler; siz deklanşöre dokunmadan fotoğraf çekilmez. Fotoğrafı saklamayız: o tek istek için işlenir ve atılır. Lütfen kamerayı insanlara değil ürüne doğrultun.</p>
+<p><strong>Yapay zekâ ürünleri değerlendirmez.</strong> Skorlar ve kararlar, içerik metninden ve cilt profilinizden sabit kurallarla kendi sunucularımızda hesaplanır. Adıyla arama yapmak veya içerik listesi yapıştırmak Anthropic'e hiçbir şey göndermez.</p>
 <h3>2. İsteğe bağlı yapay zekâ açıklamaları</h3>
 <p>SkinwellAI, fotoğrafla cilt profilindeki tahminleri sade bir dille açıklayan isteğe bağlı bir metin yazabilir. <strong>Yüz fotoğrafınız üçüncü taraf bir yapay zekâya asla gönderilmez</strong>: görüntü analizi (MediaPipe/OpenCV) kendi arka ucumuzda yapılır. Bu açıklama için OpenAI'a <strong>yalnızca</strong> şunları göndeririz:</p>
 <ul>
@@ -60,7 +60,7 @@ code{background:#f0eef4;padding:1px 5px;border-radius:4px;font-size:13px}
 <p><strong>Onay gereklidir ve geri alınabilir.</strong> Bu açıklamalar <strong>yalnızca açıkça onayladıktan sonra</strong> çalışır. Reddederseniz metin, üçüncü taraf yapay zekâ olmadan <strong>kendi sunucularımızda</strong> üretilir. Onayı <strong>Profil → Gizlilik ve veriler</strong>'den istediğiniz an verebilir veya geri çekebilirsiniz; politika sürümümüz değişirse yeniden sorarız.</p>
 <p><strong>Güvenlik.</strong> Üretilen metin, teşhissiz ve incitici olmayan ifade için filtrelenir ve gerçek skorlarınıza göre doğrulanır; doğrulanamazsa sunucu tarafında deterministik bir metne geçeriz.</p>
 <h3>Sağlayıcı şartları</h3>
-<p>OpenAI API şartlarına göre girdiler <strong>varsayılan olarak modellerini eğitmek için kullanılmaz</strong> ve bu veriyi reklam için kullanmayız.</p></section>
+<p>Anthropic ve OpenAI'ın ticari API şartlarına göre girdiler <strong>varsayılan olarak modellerini eğitmek için kullanılmaz</strong> ve bu veriyi reklam için kullanmayız.</p></section>
 <footer>SkinwellAI · cosmetic information, not a medical device.</footer>
 </div>
 <script>function setLang(l){document.getElementById('en').classList.toggle('hidden',l!=='en');
